@@ -21,6 +21,23 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin-area', [App\Http\Controllers\HomeController::class, 'adminArea'])->name('admin-area');
+Route::get('/admin-area/user-add', [App\Http\Controllers\UserController::class, 'addUser'])->name('admin-area.user-add');
+Route::post('/admin-area/user-save', [App\Http\Controllers\UserController::class, 'saveUser'])->name('admin-area.user-save');
+Route::get('/admin-area/user-edit/{id}', [App\Http\Controllers\UserController::class, 'editUser'])->name('admin-area.user-edit');
+Route::post('/admin-area/user-update', [App\Http\Controllers\UserController::class, 'updateUser'])->name('admin-area.user-update');
+Route::get('/admin-area/user-delete/{id}', [App\Http\Controllers\UserController::class, 'deleteUser'])->name('admin-area.user-delete');
+
+//admin area group
+Route::get('/admin-area/group', [App\Http\Controllers\GroupController::class, 'index'])->name('admin-area.group');
+Route::get('/admin-area/group-add', [App\Http\Controllers\GroupController::class, 'addGroup'])->name('admin-area.group-add');
+Route::post('/admin-area/group-save', [App\Http\Controllers\GroupController::class, 'saveGroup'])->name('admin-area.group-save');
+Route::get('/admin-area/group-delete/{id}', [App\Http\Controllers\GroupController::class, 'deleteGroup'])->name('admin-area.group-delete');
+Route::get('/admin-area/group-edit/{id}', [App\Http\Controllers\GroupController::class, 'editGroup'])->name('admin-area.group-edit');
+Route::post('/admin-area/group-update', [App\Http\Controllers\GroupController::class, 'updateGroup'])->name('admin-area.group-update');
+
+
+
 
 // Route::group(['prefix' => 'admin'],function(){
 

@@ -3,9 +3,17 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
+
+                  @if( Request()->is('admin-area*'))
+                  <li class="nav {{ Request()->is('admin-area') || Request()->is('admin-area/user-add') || Request()->is('admin-area/user-edit/*') ? 'active' : '' }}"><a href="{{route('admin-area')}}"><i class="fa fa-users"></i> Users </a>
+                  <li class="nav {{ Request()->is('admin-area/group') || Request()->is('admin-area/group-add') || Request()->is('admin-area/group-edit/*') ? 'active' : '' }}"><a href="{{route('admin-area.group')}}"><i class="fa fa-group"></i> Groups </a>
+                  </li>
+                  @else
                   <li class="nav"><a href="{{route('home')}}"><i class="fa fa-home"></i> Dashboard </a>
                    
                   </li>
+                  @endif
+                  
                   <!-- <li class="nav-item">
                   <a href="{{route('home')}}" class="nav-link {{ Request()->is('home') ? 'active' : '' }}">
                       <i class="nav-icon fa fa-tachometer-alt"></i>
@@ -138,15 +146,19 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="{{ asset('images/img.jpg')}}" alt="">{{Auth::user()->name}}
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
-                      <a class="dropdown-item"  href="javascript:;">
+                      <!-- <a class="dropdown-item"  href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
                         <span>Settings</span>
-                      </a>
-                  <a class="dropdown-item"  href="javascript:;">Help</a>
+                      </a> -->
+                  @if(Request()->is('admin-area*'))    
+                  <a class="dropdown-item"  href="{{route('home')}}">Exit Admin Area</a>
+                  @else
+                  <a class="dropdown-item"  href="{{route('admin-area')}}">Admin Area</a>
+                  @endif
                   <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" data-toggle="tooltip" data-placement="top" title="Logout">
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf

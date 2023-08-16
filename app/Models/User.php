@@ -18,11 +18,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'unique_id',
         'name',
         'email',
         'password',
     ];
 
+    public function roles() {
+        return $this->belongsToMany(\App\Models\Role::class, 'user_roles')->withTimeStamps();
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
