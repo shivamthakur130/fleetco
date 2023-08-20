@@ -12,6 +12,61 @@
                   <li class="nav"><a href="{{route('home')}}"><i class="fa fa-home"></i> Dashboard </a>
                    
                   </li>
+                  <li><a><i class="fa fa-table"></i> Master Data <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Fleet</a></li>
+                      <li><a href="#">Suppliers</a></li>
+                      <li><a href="#">Stock Codes</a></li>
+                      <li><a href="#">Fleet Types</a></li>
+                      <li><a href="#">Vehicle Types</a></li>
+                      <li><a href="#">Service Types</a></li>
+                      <li><a href="#">Fuel Stations</a></li>
+                      <li><a href="#">Fuel Prices</a></li>
+                      <li><a href="#">Renewals</a></li>
+                      <li><a href="#">Insurance Companies</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-bar-chart-o"></i> Reports <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Fleet Report</a></li>
+                      <li><a href="#">Fuel Report</a></li>
+                      <li><a href="#">Maintenace Records</a></li>
+                      <li><a href="#">Stock Movement</a></li>
+                      <li><a href="#">Stock Balance</a></li>
+                      <li><a href="#">Accident Report</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-desktop"></i> Stocks <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Stock Purchases</a></li>
+                      <li><a href="#">Stock Issues</a></li>
+                      <li><a href="#">Removals</a></li>
+                      <li><a href="#">Disposals</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-sitemap"></i> Rebuilt Types <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Tyre Removals</a></li>
+                      <li><a href="#">Send to Build</a></li>
+                      <li><a href="#">Rebuilt Receipts</a></li>
+                      <li><a href="#">Rebuilt Issues</a></li>
+                      <li><a href="#">Rebuild Tyre Dsiposals</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-cog"></i> Repaires<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">General Repair</a></li>
+                      <li><a href="#">Accident Repair</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav"><a href="#"><i class="fa fa-windows"></i> Regular Maintenance </a>
+                  <li><a><i class="fa fa-laptop"></i> Renewals<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Insurance</a></li>
+                      <li><a href="#">Other Renewals</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav"><a href="#"><i class="fa fa-edit"></i> Insurance Claim </a>
                   @endif
                   
                   <!-- <li class="nav-item">
@@ -149,7 +204,7 @@
                     <img src="{{ asset('images/img.jpg')}}" alt="">{{Auth::user()->name}}
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="javascript:;"> Profile</a>
+                    <a class="dropdown-item"  href="{{route('admin.profile')}}"> Profile</a>
                       <!-- <a class="dropdown-item"  href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
                         <span>Settings</span>
