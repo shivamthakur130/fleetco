@@ -14,7 +14,7 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> Master Data <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Fleet</a></li>
+                    <li><a href="{{route('admin.fleet')}}">Fleet</a></li>
                       <li><a href="#">Suppliers</a></li>
                       <li><a href="#">Stock Codes</a></li>
                       <li><a href="#">Fleet Types</a></li>

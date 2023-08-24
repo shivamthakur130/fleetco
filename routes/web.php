@@ -38,6 +38,14 @@ Route::get('/admin-area/group-delete/{id}', [App\Http\Controllers\GroupControlle
 Route::get('/admin-area/group-edit/{id}', [App\Http\Controllers\GroupController::class, 'editGroup'])->name('admin-area.group-edit');
 Route::post('/admin-area/group-update', [App\Http\Controllers\GroupController::class, 'updateGroup'])->name('admin-area.group-update');
 
+//admin master-data->fleet
+Route::get('/admin/master-data/fleet', [App\Http\Controllers\FleetController::class, 'index'])->name('admin.fleet');
+Route::get('/admin/master-data/fleet/create', [App\Http\Controllers\FleetController::class, 'create'])->name('admin.fleet.create');
+Route::post('/admin', [App\Http\Controllers\FleetController::class, 'store'])->name('admin.fleet.save');
+Route::get('/admin/edit/{id}', [App\Http\Controllers\FleetController::class, 'edit'])->name('admin.fleet.edit');
+Route::post('/admin/fleet/update', [App\Http\Controllers\FleetController::class, 'update'])->name('admin.fleet.update');
+Route::get('/admin/delete/{id}', [App\Http\Controllers\FleetController::class, 'destroy'])->name('admin.fleet.delete');
+
 //users
 Route::get('/user/profile', [App\Http\Controllers\HomeController::class, 'userProfile'])->name('user.profile');
 Route::post('/user/profile/update', [App\Http\Controllers\HomeController::class, 'userProfileUpdate'])->name('user.profile-update');
