@@ -94,9 +94,11 @@
                                     <div class="form-group col-lg-4">
                                         <label for="category_id">Driver Assigned</label>
                                             <select class="form-control select2" id="assigned_driver"  data-placeholder="Select Driver" name ="assigned_driver" style="width: 100%;">
-                                            
-                                                <option value="0" >Assigned Driver</option>
-                                            
+                                                @if(count($drivers) > 0)
+                                                    @foreach($drivers as $driver)
+                                                    <option value="{{$driver->id}}" @if($driver->id == $fleet->driver_assigned) selected @endif>{{$driver->name}}</option>
+                                                    @endforeach
+                                                @endif
                                             </select> 
                                     </div>
                                     <div class="form-group col-lg-4">
@@ -382,7 +384,9 @@
                             </div>
                         </div>
                     </div>
-                </div>		
+                </div>
+
+					
 			</div>
 
         </div>

@@ -12,20 +12,21 @@
                   <li class="nav"><a href="{{route('home')}}"><i class="fa fa-home"></i> Dashboard </a>
                    
                   </li>
+                  <li class="nav"><a href="{{route('admin.driver')}}"><i class="fa fa-users"></i> Driver Mangement </a>
                   <li><a><i class="fa fa-table"></i> Master Data <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     <li><a href="{{route('admin.fleet')}}">Fleet</a></li>
-                      <li><a href="#">Suppliers</a></li>
-                      <li><a href="#">Stock Codes</a></li>
-                      <li><a href="#">Fleet Types</a></li>
-                      <li><a href="#">Vehicle Types</a></li>
-                      <li><a href="#">Service Types</a></li>
-                      <li><a href="#">Fuel Stations</a></li>
-                      <li><a href="#">Fuel Prices</a></li>
-                      <li><a href="#">Renewals</a></li>
-                      <li><a href="#">Insurance Companies</a></li>
+                      <li><a href="{{route('admin.suppliers')}}">Suppliers</a></li>
+                      <li><a href="{{route('admin.stock-code')}}">Stock Codes</a></li>
+                      <li><a href="{{route('admin.fleet-type')}}">Fleet Types</a></li>
+                      <li><a href="{{route('admin.vehicle_type')}}">Vehicle Types</a></li>
+                      <li><a href="{{route('admin.service_type')}}">Service Types</a></li>
+                      <li><a href="{{route('admin.fuel')}}">Fuel Stations & Fuel Prices</a></li>
+                      <li><a href="{{route('admin.renewals')}}">Renewals</a></li>
+                      <li><a href="{{route('admin.insurance')}}">Insurance Companies</a></li>
                     </ul>
                   </li>
+                  
                   <li><a><i class="fa fa-bar-chart-o"></i> Reports <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Fleet Report</a></li>

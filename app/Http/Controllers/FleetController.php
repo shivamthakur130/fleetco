@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fleet;
+use App\Models\Driver;
 use Illuminate\Support\Str;
 
 class FleetController extends Controller
@@ -25,8 +26,8 @@ class FleetController extends Controller
     }
 
     public function create()
-    {
-        return view('admin.master_data.fleet_create');
+    {   $drivers = Driver::get();
+        return view('admin.master_data.fleet_create',compact('drivers'));
     }
 
     public function store(request $request)
@@ -95,7 +96,8 @@ class FleetController extends Controller
 
     public function edit($id){
         $fleet = Fleet::where('unique_id',$id)->first();
-        return view('admin.master_data.edit',compact('fleet'));
+        $drivers = Driver::get();
+        return view('admin.master_data.edit',compact('fleet','drivers'));
     }
 
     public function destroy($id){
