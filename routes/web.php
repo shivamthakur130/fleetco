@@ -111,6 +111,13 @@ Route::get('/admin/driver/edit/{id}', [App\Http\Controllers\DriverController::cl
 Route::get('/admin/driver/delete/{id}', [App\Http\Controllers\DriverController::class, 'destroy'])->name('admin.driver.delete');
 Route::post('/admin/driver/update', [App\Http\Controllers\DriverController::class, 'update'])->name('admin.driver.update');
 
+//admin ->customer
+Route::get('/admin/customers', [App\Http\Controllers\CustomerController::class, 'index'])->name('admin.customer');
+Route::get('/admin/customer/create', [App\Http\Controllers\CustomerController::class, 'create'])->name('admin.customer.create');
+Route::post('/admin/customer/save', [App\Http\Controllers\CustomerController::class, 'store'])->name('admin.customer.save');
+Route::get('/admin/customer/edit/{id}', [App\Http\Controllers\CustomerController::class, 'edit'])->name('admin.customer.edit');
+Route::get('/admin/customer/delete/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('admin.customer.delete');
+Route::post('/admin/customer/update', [App\Http\Controllers\CustomerController::class, 'update'])->name('admin.customer.update');
 
 //admin ->Data Master-fuel station
 Route::get('/admin/fuels', [App\Http\Controllers\FuelController::class, 'index'])->name('admin.fuel');
@@ -119,6 +126,30 @@ Route::post('/admin/fuel/save', [App\Http\Controllers\FuelController::class, 'st
 Route::get('/admin/fuel/edit/{id}', [App\Http\Controllers\FuelController::class, 'edit'])->name('admin.fuel.edit');
 Route::get('/admin/fuel/delete/{id}', [App\Http\Controllers\FuelController::class, 'destroy'])->name('admin.fuel.delete');
 Route::post('/admin/fuel/update', [App\Http\Controllers\FuelController::class, 'update'])->name('admin.fuel.update');
+
+//admin ->InsuranceCLaim
+Route::get('/admin/insurance-claims', [App\Http\Controllers\InsuranceClaimController::class, 'index'])->name('admin.insurance.claim');
+Route::get('/admin/insurance-claim/create', [App\Http\Controllers\InsuranceClaimController::class, 'create'])->name('admin.insurance.claim.create');
+Route::post('/admin/insurance-claim/save', [App\Http\Controllers\InsuranceClaimController::class, 'store'])->name('admin.insurance.claim.save');
+Route::get('/admin/insurance-claim/edit/{id}', [App\Http\Controllers\InsuranceClaimController::class, 'edit'])->name('admin.insurance.claim.edit');
+Route::get('/admin/insurance-claim/delete/{id}', [App\Http\Controllers\InsuranceClaimController::class, 'destroy'])->name('admin.insurance.claim.delete');
+Route::post('/admin/insurance-claim/update', [App\Http\Controllers\InsuranceClaimController::class, 'update'])->name('admin.insurance.claim.update');
+
+//admin ->renewal-insurance
+Route::get('/admin/renewal/insurance', [App\Http\Controllers\RenewalInsuranceController::class, 'index'])->name('admin.renewal.insurance');
+Route::get('/admin/renewal/insurance/create', [App\Http\Controllers\RenewalInsuranceController::class, 'create'])->name('admin.renewal.insurance.create');
+Route::post('/admin/renewal/insurance/save', [App\Http\Controllers\RenewalInsuranceController::class, 'store'])->name('admin.renewal.insurance.save');
+Route::get('/admin/renewal/insurance/edit/{id}', [App\Http\Controllers\RenewalInsuranceController::class, 'edit'])->name('admin.renewal.insurance.edit');
+Route::get('/admin/renewal/insurance/delete/{id}', [App\Http\Controllers\RenewalInsuranceController::class, 'destroy'])->name('admin.renewal.insurance.delete');
+Route::post('/admin/renewal/insurance/update', [App\Http\Controllers\RenewalInsuranceController::class, 'update'])->name('admin.renewal.insurance.update');
+
+//admin ->other renewal-
+Route::get('/admin/renewal/other', [App\Http\Controllers\OtherRenewalController::class, 'index'])->name('admin.other.renewal');
+Route::get('/admin/renewal/other/create', [App\Http\Controllers\OtherRenewalController::class, 'create'])->name('admin.other.renewal.create');
+Route::post('/admin/renewal/other/save', [App\Http\Controllers\OtherRenewalController::class, 'store'])->name('admin.other.renewal.save');
+Route::get('/admin/renewal/other/edit/{id}', [App\Http\Controllers\OtherRenewalController::class, 'edit'])->name('admin.other.renewal.edit');
+Route::get('/admin/renewal/other/delete/{id}', [App\Http\Controllers\OtherRenewalController::class, 'destroy'])->name('admin.other.renewal.delete');
+Route::post('/admin/renewal/other/update', [App\Http\Controllers\OtherRenewalController::class, 'update'])->name('admin.other.renewal.update');
 
 //users
 Route::get('/user/profile', [App\Http\Controllers\HomeController::class, 'userProfile'])->name('user.profile');

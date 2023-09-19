@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Driver;
 use App\Models\Supplier;
 use App\Models\VehicleType;
+use App\Models\Country;
 use Illuminate\Support\Str;
 
 class DriverController extends Controller
@@ -29,7 +30,8 @@ class DriverController extends Controller
     public function create(request $request){
         $suppliers = Supplier::get();
         $vehicle_type = VehicleType::get();
-        return view('admin.drivers.add', compact('suppliers','vehicle_type'));
+        $countries = Country::get();
+        return view('admin.drivers.add', compact('suppliers','vehicle_type','countries'));
     }
 
     public function store(request $request){
@@ -50,9 +52,9 @@ class DriverController extends Controller
         $driver->vehicle_type = $request->vehicle;
         $driver->city = $request->city;
         $driver->country = $request->country;
-
-        
-    
+        $driver->state = $request->state;
+        $driver->address = $request->address;
+        $driver->zip = $request->zip;
         
         if($files = $request->file('image')) {
             //$image = $request->file('edit_image');
@@ -77,7 +79,8 @@ class DriverController extends Controller
         $driver = Driver::where('unique_id',$id)->first();
         $suppliers = Supplier::get();
         $vehicle_type = VehicleType::get();
-        return view('admin.drivers.edit', compact('suppliers','driver','vehicle_type'));
+        $countries = Country::get();
+        return view('admin.drivers.edit', compact('suppliers','driver','vehicle_type','countries'));
     }
 
     public function update(request $request ){
@@ -92,6 +95,9 @@ class DriverController extends Controller
         $driver->vehicle_type = $request->vehicle;
         $driver->city = $request->city;
         $driver->country = $request->country;
+        $driver->state = $request->state;
+        $driver->address = $request->address;
+        $driver->zip = $request->zip;
 
         if($files = $request->file('image')) {
 

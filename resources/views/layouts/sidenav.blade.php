@@ -13,6 +13,7 @@
                    
                   </li>
                   <li class="nav"><a href="{{route('admin.driver')}}"><i class="fa fa-users"></i> Driver Mangement </a>
+                  <li class="nav"><a href="{{route('admin.customer')}}"><i class="fa fa-users"></i> Customer Mangement </a>
                   <li><a><i class="fa fa-table"></i> Master Data <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     <li><a href="{{route('admin.fleet')}}">Fleet</a></li>
@@ -63,11 +64,11 @@
                   <li class="nav"><a href="#"><i class="fa fa-windows"></i> Regular Maintenance </a>
                   <li><a><i class="fa fa-laptop"></i> Renewals<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Insurance</a></li>
-                      <li><a href="#">Other Renewals</a></li>
+                      <li><a href="{{route('admin.renewal.insurance')}}">Insurance</a></li>
+                      <li><a href="{{route('admin.other.renewal')}}">Other Renewals</a></li>
                     </ul>
                   </li>
-                  <li class="nav"><a href="#"><i class="fa fa-edit"></i> Insurance Claim </a>
+                  <li class="nav"><a href="{{route('admin.insurance.claim')}}"><i class="fa fa-edit"></i> Insurance Claim </a>
                   @endif
                   
                   <!-- <li class="nav-item">

@@ -1,11 +1,10 @@
 @extends('layouts.master')
 
-    @section('title' , 'Admin|Drivers')
+    @section('title' , 'Admin|Insurance Claims')
 
 @section('main-content')
 
   
-
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
@@ -32,7 +31,7 @@
                 </div>
                 @endif
                   <div class="x_title">
-                  <a href="{{route('admin.driver.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add Driver</a>
+                  <a href="{{route('admin.insurance.claim.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add New</a>
                     
                     <div class="clearfix"></div>
                   </div>
@@ -45,34 +44,67 @@
                                 <thead>
                                     <tr>
                                     <th>Sr No.</th>
-                                    <th>Internal Id</th>
-                                    <th>Driver Name</th>
-                                    <th>Email</th>
-                                    <th>Telephone</th>
-                                    <th>City</th>
-                                    <th>Address</th>
-                                    <th>Image</th>
+                                    <th>Date</th>
+                                    <th>Vehicle Number</th>
+                                    <th>Fleet Type</th>
+                                    <th>Vehicle Type</th>
+                                    <th>Acc. Ref</th>
+                                    <th>Insurance</th>
+                                    <th>Claim</th>
+                                    <th>Recp. Ref</th>
+                                    <th>Remarks</th>
+                                    <th>Enterd By</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
                                     <tbody>
-                                    @if(count($drivers) > 0)
-                                    @foreach($drivers as $driver)
+                                    @if(count($IClaims) > 0)
+                                    @foreach($IClaims as $ic)
                                       <tr>
-                                      <td> {{ $loop->index + 1 }} </td>
-                                      <td>{{$driver->internal_id}}</td>
-                                      <td> {{ $driver->name}} </td>
-                                      <td> {{ $driver->email}} </td>
-                                      <td> {{ $driver->phone}} </td>
-                                      <td>{{$driver->city}}</td>
-                                      <td>{{$driver->address}}</td>
-                                      <td><img id="original" alt="Not Uploaded" src="{{ asset('drivers/'.$driver->image) }}" height="30" width="30"></td>
-                                      
+                                      <td> {{ $loop->index+1 }} </td>
+                                      <td> {{ $ic->date}} </td>
+                                      <td> {{ $ic->vehicle_number}} </td>
+                                      <td> 
+                                        @if(count($fleet) > 0) 
+                                          @foreach($fleet as $fl) 
+                                            @if($fl->id == $ic->fleet_type)  
+                                              {{ $fl->fleet_type}} 
+                                            @endif 
+                                          @endforeach 
+                                        @endif  
+                                      </td>
+
+                                      <td> 
+                                        @if(count($vehicle) > 0)
+                                          @foreach($vehicle as $fl)
+                                            @if($fl->id == $ic->vehicle_type)  
+                                              {{ $fl->vehicle_type}} 
+                                            @endif 
+                                          @endforeach 
+                                        @endif  
+                                      </td>
+                                      <td>{{$ic->accident_ref}}</td>
+                                      <td> 
+                                        @if(count($insurance) > 0)
+                                          @foreach($insurance as $fl)
+                                            @if($fl->id == $ic->insurance)  
+                                              {{ $fl->name}} 
+                                            @endif 
+                                          @endforeach 
+                                        @endif  
+                                      </td>
+                                      <td>{{$ic->claim}}</td>
+                                      <td>{{$ic->recepient_ref}}</td>
+                                      <td>{{$ic->remarks}}</td>
+                                      <td>{{$ic->enterd_by}}</td>
+
                                       <td>
-                                        <a href="{{route('admin.driver.edit', $driver->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
+                                        <a href="{{route('admin.insurance.claim.edit', $ic->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{route('admin.driver.delete', $driver->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
+                                        
+                                        <a href="{{route('admin.insurance.claim.delete', $ic->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
                                         </a>
+                                        
                                       </td>
                                       
                                       </tr>

@@ -57,7 +57,7 @@
                                     </div>
                                 <div class="form-group col-lg-6">
                                         <label for="project_name" >Contact Number</label>
-                                        <input type="number" class="form-control  @error('cnumber') is-invalid @enderror" id="cnumber" name="cnumber" placeholder="Contact Number" value="{{$fuel->contact_number}}" >
+                                        <input type="text" class="form-control  @error('cnumber') is-invalid @enderror" id="cnumber" name="cnumber" placeholder="Contact Number" value="{{$fuel->contact_number}}" >
                                         @error('cnumber')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -79,6 +79,45 @@
                                         <label for="project_name" >Deposit Kept</label>
                                         <input type="number" class="form-control  @error('deposit') is-invalid @enderror" id="deposit" name="deposit" placeholder="Deposit Kept" value="{{$fuel->deposit_kept}}" >
                                         @error('deposit')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        <label for="project_url" >City</label>
+                                        <input type="text" class="form-control  @error('city') is-invalid @enderror" id="city" name="city" placeholder="City" value="{{$fuel->city}}" >
+                                        @error('city')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="project_url" >State</label>
+                                        <input type="text" class="form-control  @error('state') is-invalid @enderror" id="state" name="state" placeholder="State" value="{{$fuel->state}}" >
+                                        @error('state')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="category_id">Country</label>
+                                            <select class="form-control select2" id="country" data-placeholder="Select Country" name ="country" style="width: 100%;" >
+                                                @if(count($countries) > 0)
+                                                @foreach($countries as $country)
+                                                <option value="{{$country->id}}" @if($fuel->country == $country->id) selected @endif>{{$country->name}}</option>
+                                                @endforeach
+                                                @endif
+                                            </select> 
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="project_url" >Zip Code</label>
+                                        <input type="text" class="form-control  @error('zip') is-invalid @enderror" id="zip" name="zip" placeholder="Zip Code" value="{{$fuel->zip}}" >
+                                        @error('zip')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                             </span>

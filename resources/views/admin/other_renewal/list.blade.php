@@ -1,11 +1,10 @@
 @extends('layouts.master')
 
-    @section('title' , 'Admin|Drivers')
+    @section('title' , 'Admin|Other Renewal')
 
 @section('main-content')
 
   
-
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
@@ -32,7 +31,7 @@
                 </div>
                 @endif
                   <div class="x_title">
-                  <a href="{{route('admin.driver.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add Driver</a>
+                  <a href="{{route('admin.other.renewal.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add New</a>
                     
                     <div class="clearfix"></div>
                   </div>
@@ -45,34 +44,69 @@
                                 <thead>
                                     <tr>
                                     <th>Sr No.</th>
-                                    <th>Internal Id</th>
-                                    <th>Driver Name</th>
-                                    <th>Email</th>
-                                    <th>Telephone</th>
-                                    <th>City</th>
-                                    <th>Address</th>
-                                    <th>Image</th>
+                                    <th>Fleet</th>
+                                    <th>Vehicle Number</th>
+                                    <th>Vehicle Type</th>
+                                    <th>Renewal</th>
+                                    <th>Cost</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Pay Date</th>
+                                    <th>Pay Ref.</th>
+                                    <th>Enterd By</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
                                     <tbody>
-                                    @if(count($drivers) > 0)
-                                    @foreach($drivers as $driver)
+                                    @if(count($otherRenewal) > 0)
+                                    @foreach($otherRenewal as $ic)
                                       <tr>
-                                      <td> {{ $loop->index + 1 }} </td>
-                                      <td>{{$driver->internal_id}}</td>
-                                      <td> {{ $driver->name}} </td>
-                                      <td> {{ $driver->email}} </td>
-                                      <td> {{ $driver->phone}} </td>
-                                      <td>{{$driver->city}}</td>
-                                      <td>{{$driver->address}}</td>
-                                      <td><img id="original" alt="Not Uploaded" src="{{ asset('drivers/'.$driver->image) }}" height="30" width="30"></td>
+                                      <td> {{ $loop->index+1 }} </td>
+                                      <td> 
+                                        @if(count($fleet) > 0) 
+                                          @foreach($fleet as $fl) 
+                                            @if($fl->id == $ic->fleet_type)  
+                                              {{ $fl->fleet_type}} 
+                                            @endif 
+                                          @endforeach 
+                                        @endif  
+                                      </td>
+                                      <td> {{ $ic->vehicle_number}} </td>
                                       
+
+                                      <td> 
+                                        @if(count($vehicle) > 0)
+                                          @foreach($vehicle as $fl)
+                                            @if($fl->id == $ic->vehicle_type)  
+                                              {{ $fl->vehicle_type}} 
+                                            @endif 
+                                          @endforeach 
+                                        @endif  
+                                      </td>
+                                      <td> @if(count($renewals) > 0)
+                                          @foreach($renewals as $re)
+                                            @if($re->id == $ic->renewal_type)  
+                                              {{ $re->renewal}} 
+                                            @endif 
+                                          @endforeach 
+                                        @endif  </td>
+                                      
+                                      <td>{{$ic->cost}}</td>
+                                      
+                                      <td>{{$ic->from}}</td>
+                                      <td>{{$ic->to}}</td>
+                                      <td>{{$ic->pay_date}}</td>
+                                      <td>{{$ic->pay_ref}}</td>
+
+                                      <td>{{$ic->enterd_by}}</td>
+
                                       <td>
-                                        <a href="{{route('admin.driver.edit', $driver->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
+                                        <a href="{{route('admin.other.renewal.edit', $ic->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{route('admin.driver.delete', $driver->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
+                                        
+                                        <a href="{{route('admin.other.renewal.delete', $ic->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
                                         </a>
+                                        
                                       </td>
                                       
                                       </tr>

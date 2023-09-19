@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fuel;
+use App\Models\Country;
 use Illuminate\Support\Str;
 
 class FuelController extends Controller
@@ -24,7 +25,8 @@ class FuelController extends Controller
         return view('admin.fuels.list', compact('fuels'));
     }
     public function create(){
-        return view('admin.fuels.add');
+        $countries = Country::get();
+        return view('admin.fuels.add', compact('countries'));
     }
     public function store(request $request){
         $validated = $request->validate([
@@ -39,13 +41,19 @@ class FuelController extends Controller
         $fuel->address = $request->address;
         $fuel->deposit_kept = $request->deposit;
         $fuel->contact_number = $request->cnumber;
+        $fuel->city = $request->city;
+        $fuel->country = $request->country;
+        $fuel->state = $request->state;
+        $fuel->address = $request->address;
+        $fuel->zip = $request->zip;
         $fuel->save();
     
         return redirect()->route('admin.fuel')->with('message', 'Fuel Station Saved successfully.');
     }
     public function edit($id){    
+        $countries = Country::get();
         $fuel = Fuel::where('unique_id',$id)->first();
-        return view('admin.fuels.edit', compact('fuel'));
+        return view('admin.fuels.edit', compact('fuel','countries'));
     }
 
     public function update(request $request){
@@ -57,6 +65,11 @@ class FuelController extends Controller
         $fuel->address = $request->address;
         $fuel->deposit_kept = $request->deposit;
         $fuel->contact_number = $request->cnumber;
+        $fuel->city = $request->city;
+        $fuel->country = $request->country;
+        $fuel->state = $request->state;
+        $fuel->address = $request->address;
+        $fuel->zip = $request->zip;
         $fuel->save();
         return redirect()->route('admin.fuel')->with('message', 'Fuel Station Update successfully.');
     }

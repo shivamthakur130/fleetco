@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Supplier;
+use App\Models\Country;
 use Illuminate\Support\Str;
 
 class SupplierController extends Controller
@@ -25,8 +26,9 @@ class SupplierController extends Controller
     }
 
     public function create()
-    {
-        return view('admin.suppliers.add');
+    {   
+        $countries = Country::get();
+        return view('admin.suppliers.add',compact('countries'));
     }
     public function store(request $request){
         $validated = $request->validate([
@@ -40,6 +42,11 @@ class SupplierController extends Controller
         $supplier->phone = $request->telephone;
         $supplier->remarks = $request->remark;
         $supplier->supplier_name = $request->supplier_name;
+        $supplier->country = $request->country;
+        $supplier->state = $request->state;
+        $supplier->city = $request->city;
+        $supplier->state = $request->state;
+        $supplier->zip = $request->zip;
         $supplier->save();
     
         return redirect()->route('admin.suppliers')->with('message', 'Supplier Saved successfully.');
@@ -55,7 +62,8 @@ class SupplierController extends Controller
     public function edit($id){
         
         $supplier = Supplier::where('unique_id',$id)->first();
-        return view('admin.suppliers.edit', compact('supplier'));
+        $countries = Country::get();
+        return view('admin.suppliers.edit', compact('supplier','countries'));
     }
     public function update(request $request){
         $validated = $request->validate([
@@ -68,6 +76,11 @@ class SupplierController extends Controller
         $supplier->phone = $request->telephone;
         $supplier->remarks = $request->remark;
         $supplier->supplier_name = $request->supplier_name;
+        $supplier->country = $request->country;
+        $supplier->state = $request->state;
+        $supplier->city = $request->city;
+        $supplier->state = $request->state;
+        $supplier->zip = $request->zip;
         $supplier->save();
     
         return redirect()->route('admin.suppliers')->with('message', 'Supplier Update successfully.');

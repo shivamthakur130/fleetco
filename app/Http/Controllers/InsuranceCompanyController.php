@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\InsuranceCompany;
+use App\Models\country;
 use Illuminate\Support\Str;
 
 class InsuranceCompanyController extends Controller
@@ -24,7 +25,9 @@ class InsuranceCompanyController extends Controller
         return view('admin.insurance.list', compact('insurances'));
     }
     public function create(){
-        return view('admin.insurance.add');
+        $insurances = InsuranceCompany::get();
+        $countries = Country::get();
+        return view('admin.insurance.add',compact('countries'));
     }
 
     public function store(request $request){
@@ -38,6 +41,11 @@ class InsuranceCompanyController extends Controller
         $ic->name = $request->name;
         $ic->contact_name = $request->contact_name;
         $ic->contact_number = $request->cnumber;
+        $ic->city = $request->city;
+        $ic->country = $request->country;
+        $ic->state = $request->state;
+        $ic->address = $request->address;
+        $ic->zip = $request->zip;
         $ic->save();
     
         return redirect()->route('admin.insurance')->with('message', 'Insurance Company Saved successfully.');
@@ -51,7 +59,8 @@ class InsuranceCompanyController extends Controller
 
     public function edit($id){    
         $ic = InsuranceCompany::where('unique_id',$id)->first();
-        return view('admin.insurance.edit', compact('ic'));
+        $countries = Country::get();
+        return view('admin.insurance.edit', compact('ic','countries'));
     }
 
     public function update(request $request){
@@ -60,6 +69,11 @@ class InsuranceCompanyController extends Controller
         $ic->name = $request->name;
         $ic->contact_name = $request->contact_name;
         $ic->contact_number = $request->cnumber;
+        $ic->city = $request->city;
+        $ic->country = $request->country;
+        $ic->state = $request->state;
+        $ic->address = $request->address;
+        $ic->zip = $request->zip;
         $ic->save();
         return redirect()->route('admin.insurance')->with('message', 'Insurance Company Update successfully.');
     }

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-    @section('title' , 'Admin|Drivers')
+    @section('title' , 'Admin|Customers')
 
 @section('main-content')
 
@@ -32,7 +32,7 @@
                 </div>
                 @endif
                   <div class="x_title">
-                  <a href="{{route('admin.driver.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add Driver</a>
+                  <a href="{{route('admin.customer.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add Customer</a>
                     
                     <div class="clearfix"></div>
                   </div>
@@ -45,33 +45,33 @@
                                 <thead>
                                     <tr>
                                     <th>Sr No.</th>
-                                    <th>Internal Id</th>
-                                    <th>Driver Name</th>
+                                    <th>Customer Name</th>
                                     <th>Email</th>
                                     <th>Telephone</th>
                                     <th>City</th>
-                                    <th>Address</th>
-                                    <th>Image</th>
+                                    <th>State</th>
+                                    <th>Country</th>
+                                    <th>Postal</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
                                     <tbody>
-                                    @if(count($drivers) > 0)
-                                    @foreach($drivers as $driver)
+                                    @if(count($customers) > 0)
+                                    @foreach($customers as $customer)
                                       <tr>
                                       <td> {{ $loop->index + 1 }} </td>
-                                      <td>{{$driver->internal_id}}</td>
-                                      <td> {{ $driver->name}} </td>
-                                      <td> {{ $driver->email}} </td>
-                                      <td> {{ $driver->phone}} </td>
-                                      <td>{{$driver->city}}</td>
-                                      <td>{{$driver->address}}</td>
-                                      <td><img id="original" alt="Not Uploaded" src="{{ asset('drivers/'.$driver->image) }}" height="30" width="30"></td>
+                                      <td>{{$customer->name}}</td>
+                                      <td> {{ $customer->email}} </td>
+                                      <td> {{ $customer->phone}} </td>
+                                      <td> {{ $customer->city}} </td>
+                                      <td>{{$customer->state}}</td>
+                                      <td>{{$customer->country}}</td>
+                                      <td>{{$customer->postal_code}}</td>
                                       
                                       <td>
-                                        <a href="{{route('admin.driver.edit', $driver->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
+                                        <a href="{{route('admin.customer.edit', $customer->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{route('admin.driver.delete', $driver->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
+                                        <a href="{{route('admin.customer.delete', $customer->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
                                         </a>
                                       </td>
                                       
