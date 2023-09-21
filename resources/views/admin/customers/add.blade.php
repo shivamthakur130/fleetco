@@ -125,12 +125,13 @@
                                    
                                     <div class="form-group col-lg-12">
                                         <label for="project_url" >Country</label>
-                                        <input type="text" class="form-control  @error('country') is-invalid @enderror" id="country" name="country" placeholder="Country">
-                                        @error('country')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                            <select class="form-control select2" id="country" data-placeholder="Select Country" name ="country" style="width: 100%;">
+                                                @if(count($countries) > 0)
+                                                    @foreach($countries as $country)
+                                                        <option value="{{$country->id}}" >{{$country->name}}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select> 
                                     </div>
                                     
                                 </div>
@@ -169,7 +170,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Phone</label>
-                                        <input type="number" class="form-control  @error('phone_number') is-invalid @enderror" id="phone_number" name="phone_number" placeholder="Phone Number">
+                                        <input type="text" class="form-control  @error('phone_number') is-invalid @enderror" id="phone_number" name="phone_number" placeholder="Phone Number">
                                         @error('phone_number')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

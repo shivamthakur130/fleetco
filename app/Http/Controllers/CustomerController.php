@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\Country;
 use Illuminate\Support\Str;
 
 class CustomerController extends Controller
@@ -15,7 +16,8 @@ class CustomerController extends Controller
     }
 
     public function create(request $request){
-        return view('admin.customers.add');
+        $countries = Country::get();
+        return view('admin.customers.add',compact('countries'));
     }
 
     public function store(request $request){
@@ -54,7 +56,8 @@ class CustomerController extends Controller
     public function edit($id){
         
         $customer = Customer::where('unique_id',$id)->first();
-        return view('admin.customers.edit', compact('customer'));
+        $countries = Country::get();
+        return view('admin.customers.edit', compact('customer','countries'));
     }
 
     public function update(request $request ){

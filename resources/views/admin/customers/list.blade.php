@@ -50,7 +50,7 @@
                                     <th>Telephone</th>
                                     <th>City</th>
                                     <th>State</th>
-                                    <th>Country</th>
+                                    <!-- <th>Country</th> -->
                                     <th>Postal</th>
                                     <th>Action</th>
                                     </tr>
@@ -65,7 +65,7 @@
                                       <td> {{ $customer->phone}} </td>
                                       <td> {{ $customer->city}} </td>
                                       <td>{{$customer->state}}</td>
-                                      <td>{{$customer->country}}</td>
+                                      <!-- <td>{{$customer->country}}</td> -->
                                       <td>{{$customer->postal_code}}</td>
                                       
                                       <td>

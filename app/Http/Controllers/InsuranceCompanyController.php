@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\InsuranceCompany;
-use App\Models\country;
+use App\Models\Country;
 use Illuminate\Support\Str;
 
 class InsuranceCompanyController extends Controller
