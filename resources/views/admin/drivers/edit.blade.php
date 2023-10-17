@@ -29,7 +29,7 @@
                                     <div class="form-group col-lg-4">
                                     <label for="first_name" >Image</label>
                                         <div class="custom-file">
-                                        <input type="file" class="form-control custom-file-input @error('logo') is-invalid @enderror" id="customFile" name="image" accept=".png, .jpg, .jpeg">
+                                        <input type="file" class="form-control custom-file-input @error('logo') is-invalid @enderror" readonly id="customFile" name="image" accept=".png, .jpg, .jpeg">
                                         <label class="custom-file-label" for="customFile">Image</label>
                                             @error('logo')
                                             <span class="invalid-feedback" role="alert">

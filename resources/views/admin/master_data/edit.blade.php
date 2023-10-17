@@ -27,7 +27,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-4">
                                         <label for="project_name" >Internal Id</label>
-                                        <input type="text" class="form-control  @error('internal_id') is-invalid @enderror" value="{{$fleet->internal_id}}" id="internal_id" name="internal_id" placeholder="Internal Id" autofocus>
+                                        <input type="text" class="form-control  @error('internal_id') is-invalid @enderror" readonly value="{{$fleet->internal_id}}" id="internal_id" name="internal_id" placeholder="Internal Id" autofocus>
                                         @error('internal_id')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

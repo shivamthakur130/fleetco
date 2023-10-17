@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-    @section('title' , 'Admin|Users')
+    @section('title' , 'Admin|Company Branch')
 
 @section('main-content')
 
@@ -32,7 +32,7 @@
                 </div>
                 @endif
                   <div class="x_title">
-                  <a href="{{route('admin-area.user-add')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add User</a>
+                  <a href="{{route('admin.company.branch.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add Company Branch</a>
                     
                     <div class="clearfix"></div>
                   </div>
@@ -44,32 +44,34 @@
                                 <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
-                                      <th>Sr No.</th>
-                                    <th>Username</th>
-                                    <th>Fullname</th>
+                                    <th>Sr No.</th>
+                                    <th>Company Eid</th>
                                     <th>Email</th>
-                                    <th>Groups</th>
-                                    
+                                    <th>Telephone</th>
+                                    <th>Street</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Postal</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
                                     <tbody>
-                                    @if(count($users) > 0)
-                                    @foreach($users as $user)
+                                    @if(count($companies) > 0)
+                                    @foreach($companies as $company)
                                       <tr>
-                                      <td> {{ $loop->index+1 }} </td>
-                                      <td> {{ $user->username}} </td>
-                                      <td> {{ $user->name}} </td>
-                                      <td> {{$user->email}} </td>
+                                      <td> {{ $loop->index + 1 }} </td>
+                                      <td>{{$company->branch_eid}}</td>
+                                      <td> {{ $company->branch_email}} </td>
+                                      <td> {{ $company->branch_contact}} </td>
+                                      <td>{{$company->street}}</td>
+                                      <td> {{ $company->city}} </td>
+                                      <td>{{$company->state}}</td>
+                                      <td>{{$company->zip}}</td>
+                                      
                                       <td>
-                                          @foreach($user->roles as $rl)
-                                            {{$rl->label}} @if (!$loop->last)|@endif
-                                          @endforeach
-                                      </td>
-                                      <td>
-                                        <a href="{{route('admin-area.user-edit', $user->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
+                                        <a href="{{route('admin.company.branch.edit', $company->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{route('admin-area.user-delete', $user->unique_id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
+                                        <a href="{{route('admin.company.branch.delete', $company->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
                                         </a>
                                       </td>
                                       

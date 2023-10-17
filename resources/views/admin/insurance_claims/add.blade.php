@@ -28,11 +28,11 @@
                                 <div class="row">
                                     <div class="form-group col-lg-4">
                                         <label for="project_name" >Fleet</label>
-                                        <select class="form-control select2 @error('fleet') is-invalid @enderror" id="fleet" data-placeholder="Select Fleet" name ="fleet" style="width: 100%;">
+                                        <select class="form-control select2 @error('fleet') is-invalid @enderror" value=" {{ old('fleet') }} " id="fleet" data-placeholder="Select Fleet" name ="fleet" style="width: 100%;">
                                         <option value="" >Select Fleet</option>
                                         @if(count($fleet) > 0)
                                             @foreach($fleet as $f)
-                                            <option value="{{$f->id}}" >{{$f->fleet_type}}</option>
+                                            <option value="{{$f->id}}" @selected(old('fleet') == $f->id)>{{$f->fleet_type}}</option>
                                             @endforeach
                                         @endif
                                         </select>         
@@ -41,9 +41,9 @@
                                         <label for="project_name" >Vehicle Number</label>
                                         <select class="form-control select2" id="vehicle_number" data-placeholder="Select Vehicle Number" name ="vehicle_number" style="width: 100%;">
                                         <option value="0" >Select Vehicle Number</option>
-                                        <option value="1" >1</option>
-                                        <option value="2" >2</option>
-                                        <option value="3" >3</option>
+                                        <option value="1" @selected(old('vehicle_number') == 1)>1</option>
+                                        <option value="2" @selected(old('vehicle_number') == 2)>2</option>
+                                        <option value="3" @selected(old('vehicle_number') == 3)>3</option>
                                         </select>         
                                     </div>
                                     <div class="form-group col-lg-4">
@@ -52,7 +52,7 @@
                                         <option value="" >Select Fleet</option>
                                         @if(count($vehicle) > 0)
                                             @foreach($vehicle as $v)
-                                            <option value="{{$v->id}}" >{{$v->vehicle_type}}</option>
+                                            <option value="{{$v->id}}" @selected(old('vehicle_type') == $v->id)>{{$v->vehicle_type}}</option>
                                             @endforeach
                                         @endif
                                         </select>         
@@ -80,8 +80,8 @@
                                         <label for="project_name" >Acci. Ref</label>
                                         <select class="form-control select2 @error('acc_ref') is-invalid @enderror " id="acc_ref" data-placeholder="Select Vehicle Number" name ="acc_ref" style="width: 100%;">
                                         <option value="" >Select Accident Ref</option>
-                                        <option value="4" >4</option>
-                                        <option value="5" >5</option>
+                                        <option value="4" @selected(old('acc_ref') == 4)>4</option>
+                                        <option value="5" @selected(old('acc_ref') == 5)>5</option>
                                         </select>         
                                     </div>
                                     <div class="form-group col-lg-4">
@@ -90,7 +90,7 @@
                                         <option value="" >Select Insurer</option>
                                         @if(count($insurance) > 0)
                                             @foreach($insurance as $ins)
-                                            <option value="{{$ins->id}}" >{{$ins->name}}</option>
+                                            <option value="{{$ins->id}}" @selected(old('insurer') == $ins->id)>{{$ins->name}}</option>
                                             @endforeach
                                         @endif
                                         </select>         
@@ -99,7 +99,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_name" >Claim</label>
-                                        <input type="text" class="form-control  @error('claim') is-invalid @enderror" id="claim" name="claim" placeholder="Claim">
+                                        <input type="text" class="form-control  @error('claim') is-invalid @enderror" value="{{ old('claim') }}" id="claim" name="claim" placeholder="Claim">
                                             @error('claim')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -108,7 +108,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_name" >Recp. Ref</label>
-                                        <input type="text" class="form-control  @error('recp_ref') is-invalid @enderror" id="recp_ref" name="recp_ref" placeholder="Recp. Ref">
+                                        <input type="text" class="form-control  @error('recp_ref') is-invalid @enderror" id="recp_ref"  name="recp_ref" value="{{ old('recp_ref') }}" placeholder="Recp. Ref">
                                             @error('recp_ref')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -122,8 +122,8 @@
                                 <div class="row">
                                    
                                     <div class="form-group col-lg-12">
-                                        <label for="project_url" >Remark</label>
-                                        <textarea name="remark" class="form-control  @error('remark') is-invalid @enderror"  id="remark" cols="10" rows="3" placeholder="Remark"></textarea>
+                                        <label for="remark" >Remark</label>
+                                        <textarea name="remark" class="form-control  @error('remark') is-invalid @enderror"   id="remark" cols="10" rows="3" placeholder="Remark">{{ old('remark') }}</textarea>
                                     </div>
                                 </div><hr>
                                 <div class="row">

@@ -31,7 +31,8 @@ class DriverController extends Controller
         $suppliers = Supplier::get();
         $vehicle_type = VehicleType::get();
         $countries = Country::get();
-        return view('admin.drivers.add', compact('suppliers','vehicle_type','countries'));
+        $drivers = Driver::get();
+        return view('admin.drivers.add', compact('suppliers','vehicle_type','countries','drivers'));
     }
 
     public function store(request $request){

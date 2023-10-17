@@ -8,12 +8,20 @@
                   <li class="nav {{ Request()->is('admin-area') || Request()->is('admin-area/user-add') || Request()->is('admin-area/user-edit/*') ? 'active' : '' }}"><a href="{{route('admin-area')}}"><i class="fa fa-users"></i> Users </a>
                   <li class="nav {{ Request()->is('admin-area/group') || Request()->is('admin-area/group-add') || Request()->is('admin-area/group-edit/*') ? 'active' : '' }}"><a href="{{route('admin-area.group')}}"><i class="fa fa-group"></i> Groups </a>
                   </li>
+                  <li class="nav {{ Request()->is('admin-area/permissions') ? 'active' : '' }}"><a href="{{route('admin-area.permission')}}"><i class="fa fa-group"></i> Permissions </a>
                   @else
                   <li class="nav"><a href="{{route('home')}}"><i class="fa fa-home"></i> Dashboard </a>
                    
                   </li>
+                  <li class="nav"><a href="{{route('admin.company')}}"><i class="fa fa-users"></i> Companies </a>
+                  <li class="nav"><a href="{{route('admin.branch')}}"><i class="fa fa-users"></i> Branch </a>
+                  <li class="nav"><a href="{{route('admin.company.branch')}}"><i class="fa fa-users"></i> Company Branch </a>
+
                   <li class="nav"><a href="{{route('admin.driver')}}"><i class="fa fa-users"></i> Driver Mangement </a>
                   <li class="nav"><a href="{{route('admin.customer')}}"><i class="fa fa-users"></i> Customer Mangement </a>
+                  
+
+                  <li class="nav"><a href="{{route('admin.order')}}"><i class="fa fa-users"></i> Order Mangement </a>
                   <li><a><i class="fa fa-table"></i> Master Data <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     <li><a href="{{route('admin.fleet')}}">Fleet</a></li>

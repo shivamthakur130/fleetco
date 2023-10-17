@@ -62,8 +62,6 @@ class CustomerController extends Controller
 
     public function update(request $request ){
         $customer = Customer::where('id',$request->id)->first();
-        
-        $customer->unique_id = Str::random(40);
         $customer->name = $request->customer_name;
         $customer->email = $request->email;
         $customer->street_1 = $request->street_1;

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-    @section('title' , 'Admin|Users')
+    @section('title' , 'Admin|Branches')
 
 @section('main-content')
 
@@ -32,7 +32,7 @@
                 </div>
                 @endif
                   <div class="x_title">
-                  <a href="{{route('admin-area.user-add')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add User</a>
+                  <a href="{{route('admin.branch.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add Branch</a>
                     
                     <div class="clearfix"></div>
                   </div>
@@ -44,32 +44,24 @@
                                 <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
-                                      <th>Sr No.</th>
-                                    <th>Username</th>
-                                    <th>Fullname</th>
-                                    <th>Email</th>
-                                    <th>Groups</th>
+                                    <th>Sr No.</th>
+                                    <th>Branch Type</th>
                                     
                                     <th>Action</th>
                                     </tr>
                                 </thead>
                                     <tbody>
-                                    @if(count($users) > 0)
-                                    @foreach($users as $user)
+                                    @if(count($branches) > 0)
+                                    @foreach($branches as $branch)
                                       <tr>
-                                      <td> {{ $loop->index+1 }} </td>
-                                      <td> {{ $user->username}} </td>
-                                      <td> {{ $user->name}} </td>
-                                      <td> {{$user->email}} </td>
+                                      <td> {{ $loop->index + 1 }} </td>
+                                      <td>{{$branch->branch_type}}</td>
+                                      
+                                      
                                       <td>
-                                          @foreach($user->roles as $rl)
-                                            {{$rl->label}} @if (!$loop->last)|@endif
-                                          @endforeach
-                                      </td>
-                                      <td>
-                                        <a href="{{route('admin-area.user-edit', $user->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
+                                        <a href="{{route('admin.branch.edit', $branch->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{route('admin-area.user-delete', $user->unique_id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
+                                        <a href="{{route('admin.branch.delete', $branch->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
                                         </a>
                                       </td>
                                       

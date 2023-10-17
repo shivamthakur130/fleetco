@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_name" >Remark</label>
-                                        <input type="text" class="form-control  @error('remark') is-invalid @enderror" id="remark" value="{{$supplier->remark}}" name="remark" placeholder="Remark" autofocus>
+                                        <input type="text" class="form-control  @error('remark') is-invalid @enderror" id="remark" value="{{$supplier->remarks}}" name="remark" placeholder="Remark" autofocus>
                                         @error('remark')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

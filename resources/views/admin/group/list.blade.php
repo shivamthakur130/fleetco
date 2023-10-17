@@ -98,7 +98,7 @@
     <script src="{{ asset('vendors/iCheck/icheck.min.js')}}"></script>
     
     <!-- Custom Theme Scripts -->
-    <script src="{{ asset('build/js/custom.min.js')}}"></script>
+    <script src="{{ asset('assets/js/custom.min.js')}}"></script>
 
     <!-- Datatables -->
     <script src="{{ asset('vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>

@@ -38,6 +38,11 @@ Route::get('/admin-area/group-delete/{id}', [App\Http\Controllers\GroupControlle
 Route::get('/admin-area/group-edit/{id}', [App\Http\Controllers\GroupController::class, 'editGroup'])->name('admin-area.group-edit');
 Route::post('/admin-area/group-update', [App\Http\Controllers\GroupController::class, 'updateGroup'])->name('admin-area.group-update');
 
+//admin area permission
+Route::get('/admin-area/permission', [App\Http\Controllers\PermissionController::class, 'index'])->name('admin-area.permission');
+Route::post('/admin-area/permission/change', [App\Http\Controllers\PermissionController::class, 'changePermission']);
+
+
 //admin master-data->fleet
 Route::get('/admin/master-data/fleet', [App\Http\Controllers\FleetController::class, 'index'])->name('admin.fleet');
 Route::get('/admin/master-data/fleet/create', [App\Http\Controllers\FleetController::class, 'create'])->name('admin.fleet.create');
@@ -103,6 +108,31 @@ Route::get('/admin/insurance/delete/{id}', [App\Http\Controllers\InsuranceCompan
 Route::get('/admin/insurance/edit/{id}', [App\Http\Controllers\InsuranceCompanyController::class, 'edit'])->name('admin.insurance.edit');
 Route::post('/admin/insurance/update', [App\Http\Controllers\InsuranceCompanyController::class, 'update'])->name('admin.insurance.update');
 
+//admin ->companies
+Route::get('/admin/companies', [App\Http\Controllers\CompanyController::class, 'index'])->name('admin.company');
+Route::get('/admin/company/create', [App\Http\Controllers\CompanyController::class, 'create'])->name('admin.company.create');
+Route::post('/admin/company/save', [App\Http\Controllers\CompanyController::class, 'store'])->name('admin.company.save');
+Route::get('/admin/company/edit/{id}', [App\Http\Controllers\CompanyController::class, 'edit'])->name('admin.company.edit');
+Route::get('/admin/company/delete/{id}', [App\Http\Controllers\CompanyController::class, 'destroy'])->name('admin.company.delete');
+Route::post('/admin/company/update', [App\Http\Controllers\CompanyController::class, 'update'])->name('admin.company.update');
+
+//admin ->branch
+Route::get('/admin/branches', [App\Http\Controllers\BranchController::class, 'index'])->name('admin.branch');
+Route::get('/admin/branch/create', [App\Http\Controllers\BranchController::class, 'create'])->name('admin.branch.create');
+Route::post('/admin/branch/save', [App\Http\Controllers\BranchController::class, 'store'])->name('admin.branch.save');
+Route::get('/admin/branch/edit/{id}', [App\Http\Controllers\BranchController::class, 'edit'])->name('admin.branch.edit');
+Route::get('/admin/branch/delete/{id}', [App\Http\Controllers\BranchController::class, 'destroy'])->name('admin.branch.delete');
+Route::post('/admin/branch/update', [App\Http\Controllers\BranchController::class, 'update'])->name('admin.branch.update');
+
+//admin ->company branch
+
+Route::get('/admin/company/branches', [App\Http\Controllers\CompanyBranchController::class, 'index'])->name('admin.company.branch');
+Route::get('/admin/company/branch/create', [App\Http\Controllers\CompanyBranchController::class, 'create'])->name('admin.company.branch.create');
+Route::post('/admin/company/branch/save', [App\Http\Controllers\CompanyBranchController::class, 'store'])->name('admin.company.branch.save');
+Route::get('/admin/company/branch/edit/{id}', [App\Http\Controllers\CompanyBranchController::class, 'edit'])->name('admin.company.branch.edit');
+Route::get('/admin/company/branch/delete/{id}', [App\Http\Controllers\CompanyBranchController::class, 'destroy'])->name('admin.company.branch.delete');
+Route::post('/admin/company/branch/update', [App\Http\Controllers\CompanyBranchController::class, 'update'])->name('admin.company.branch.update');
+
 //admin ->driver
 Route::get('/admin/drivers', [App\Http\Controllers\DriverController::class, 'index'])->name('admin.driver');
 Route::get('/admin/driver/create', [App\Http\Controllers\DriverController::class, 'create'])->name('admin.driver.create');
@@ -118,6 +148,13 @@ Route::post('/admin/customer/save', [App\Http\Controllers\CustomerController::cl
 Route::get('/admin/customer/edit/{id}', [App\Http\Controllers\CustomerController::class, 'edit'])->name('admin.customer.edit');
 Route::get('/admin/customer/delete/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('admin.customer.delete');
 Route::post('/admin/customer/update', [App\Http\Controllers\CustomerController::class, 'update'])->name('admin.customer.update');
+
+Route::get('/admin/orders', [App\Http\Controllers\OrderController::class, 'index'])->name('admin.order');
+Route::get('/admin/order/create', [App\Http\Controllers\OrderController::class, 'create'])->name('admin.order.create');
+Route::post('/admin/order/save', [App\Http\Controllers\OrderController::class, 'store'])->name('admin.order.save');
+Route::get('/admin/order/edit/{id}', [App\Http\Controllers\OrderController::class, 'edit'])->name('admin.order.edit');
+Route::get('/admin/order/delete/{id}', [App\Http\Controllers\OrderController::class, 'destroy'])->name('admin.order.delete');
+Route::post('/admin/order/update', [App\Http\Controllers\OrderController::class, 'update'])->name('admin.order.update');
 
 //admin ->Data Master-fuel station
 Route::get('/admin/fuels', [App\Http\Controllers\FuelController::class, 'index'])->name('admin.fuel');

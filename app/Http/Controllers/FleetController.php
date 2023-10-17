@@ -27,7 +27,8 @@ class FleetController extends Controller
 
     public function create()
     {   $drivers = Driver::get();
-        return view('admin.master_data.fleet_create',compact('drivers'));
+        $fleets = Fleet::get();
+        return view('admin.master_data.fleet_create',compact('drivers','fleets'));
     }
 
     public function store(request $request)
@@ -97,7 +98,8 @@ class FleetController extends Controller
     public function edit($id){
         $fleet = Fleet::where('unique_id',$id)->first();
         $drivers = Driver::get();
-        return view('admin.master_data.edit',compact('fleet','drivers'));
+        $fleets = Fleet::get();
+        return view('admin.master_data.edit',compact('fleet','drivers','fleets'));
     }
 
     public function destroy($id){
