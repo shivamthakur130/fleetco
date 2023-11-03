@@ -98,7 +98,7 @@
                                         </thead>
                                         <tbody>
                                           @foreach($modules as $module)
-                                          @if($module->role_name == 'admin')
+                                          @if($module->role_name == 'admin' && $module->module == 'Master Data')
                                           <tr>
                                             <th scope="row">{{$module->sub_module}}</th>
                                             <td>
@@ -150,30 +150,299 @@
                                     </div>
                                   </div>
                                 </div>
-                                <!-- <div class="panel">
+                                <div class="panel">
                                   <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h4 class="panel-title">Collapsible Group Items #2</h4>
+                                    <h4 class="panel-title">Companies (Admin)</h4>
                                   </a>
                                   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body">
-                                      <p><strong>Collapsible Item 2 data</strong>
-                                      </p>
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'admin' && $module->module == 'Companies')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                      
                                     </div>
                                   </div>
                                 </div>
                                 <div class="panel">
                                   <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <h4 class="panel-title">Collapsible Group Items #3</h4>
+                                    <h4 class="panel-title">Branch (Admin)</h4>
                                   </a>
                                   <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                     <div class="panel-body">
-                                      <p><strong>Collapsible Item 3 data</strong>
-                                      </p>
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'admin' && $module->module == 'Branch')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
                                     </div>
                                   </div>
-                                </div> -->
+                                </div> 
+                                <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <h4 class="panel-title">Company Branch (Admin)</h4>
+                                  </a>
+                                  <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                    <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'admin' && $module->module == 'Company Branch')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div> 
+                                <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <h4 class="panel-title">Customers (Admin)</h4>
+                                  </a>
+                                  <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                    <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'admin' && $module->module == 'Customers')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div> 
                               </div>
                             <!-- end of accordion -->
                           </div>
@@ -201,7 +470,7 @@
                                         </thead>
                                         <tbody>
                                           @foreach($modules as $module)
-                                          @if($module->role_name == 'manager')
+                                          @if($module->role_name == 'manager' && $module->module == 'Master Data')
                                           <tr>
                                             <th scope="row">{{$module->sub_module}}</th>
                                             <td>
@@ -253,30 +522,310 @@
                                     </div>
                                   </div>
                                 </div>
-                                <!-- <div class="panel">
+                                  <div class="panel">
                                   <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h4 class="panel-title">Collapsible Group Items #2</h4>
+                                    <h4 class="panel-title">Companies (Manager)</h4>
                                   </a>
-                                  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                    <div class="panel-body">
-                                      <p><strong>Collapsible Item 2 data</strong>
-                                      </p>
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                              <tr>
+                                                <th>Modules</th>
+                                                <th>Add</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <th>List/View</th>
+                                                <th>Print/Export</th>
+                                                <th>Import</th>
+
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              @foreach($modules as $module)
+                                              @if($module->role_name == 'manager' && $module->module == 'Companies')
+                                              <tr>
+                                                <th scope="row">{{$module->module}}</th>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td><td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                              @endif
+                                            @endforeach
+                                            </tbody>
+                                          </table>
+                                          
+                                        </div>
+                                      </div>
                                   </div>
+                                  <div class="panel">
+                                    <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                      <h4 class="panel-title">Branch (Manager)</h4>
+                                    </a>
+                                      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                        <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                              <tr>
+                                                <th>Modules</th>
+                                                <th>Add</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <th>List/View</th>
+                                                <th>Print/Export</th>
+                                                <th>Import</th>
+
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              @foreach($modules as $module)
+                                              @if($module->role_name == 'manager' && $module->module == 'Branch')
+                                              <tr>
+                                                <th scope="row">{{$module->module}}</th>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td><td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                              @endif
+                                            @endforeach
+                                            </tbody>
+                                          </table>
+                                          
+                                        </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="panel">
+                                    <a class="panel-heading collapsed" role="tab" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                      <h4 class="panel-title">Company Branch (Manager)</h4>
+                                    </a>
+                                      <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                        <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                              <tr>
+                                                <th>Modules</th>
+                                                <th>Add</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <th>List/View</th>
+                                                <th>Print/Export</th>
+                                                <th>Import</th>
+
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              @foreach($modules as $module)
+                                              @if($module->role_name == 'manager' && $module->module == 'Company Branch')
+                                              <tr>
+                                                <th scope="row">{{$module->module}}</th>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td><td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                              @endif
+                                            @endforeach
+                                            </tbody>
+                                          </table>
+                                          
+                                        </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="panel">
+                                    <a class="panel-heading collapsed" role="tab" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                      <h4 class="panel-title">Customers (Manager)</h4>
+                                    </a>
+                                      <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                        <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                              <tr>
+                                                <th>Modules</th>
+                                                <th>Add</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <th>List/View</th>
+                                                <th>Print/Export</th>
+                                                <th>Import</th>
+
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              @foreach($modules as $module)
+                                              @if($module->role_name == 'manager' && $module->module == 'Customers')
+                                              <tr>
+                                                <th scope="row">{{$module->module}}</th>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td><td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                    </label>
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                              @endif
+                                            @endforeach
+                                            </tbody>
+                                          </table>
+                                          
+                                        </div>
+                                      </div>
+                                  </div>
+                                  
                                 </div>
-                                <div class="panel">
-                                  <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <h4 class="panel-title">Collapsible Group Items #3</h4>
-                                  </a>
-                                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                    <div class="panel-body">
-                                      <p><strong>Collapsible Item 3 data</strong>
-                                      </p>
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor
-                                    </div>
-                                  </div>
-                                </div> -->
+                                
+                                
+                                
+                                
                               </div>
                             <!-- end of accordion -->
                           </div>
@@ -304,7 +853,7 @@
                                         </thead>
                                         <tbody>
                                           @foreach($modules as $module)
-                                          @if($module->role_name == 'user')
+                                          @if($module->role_name == 'user' && $module->module == 'Master Data')
                                           <tr>
                                             <th scope="row">{{$module->sub_module}}</th>
                                             <td>
@@ -358,17 +907,302 @@
                                 </div>
                                 <div class="panel">
                                   <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h4 class="panel-title">Collapsible Group Items #2</h4>
+                                    <h4 class="panel-title">Comapnies (User)</h4>
                                   </a>
                                   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body">
-                                      <p><strong>Collapsible Item 2 data</strong>
-                                      </p>
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                      
+                                      <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'user' && $module->module == 'Companies')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
                                     </div>
                                   </div>
                                 </div>
                                 <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <h4 class="panel-title">Branch (User)</h4>
+                                  </a>
+                                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">
+                                      
+                                      <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'user' && $module->module == 'Branch')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <h4 class="panel-title">Company Branch (User)</h4>
+                                  </a>
+                                  <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                    <div class="panel-body">
+                                      
+                                      <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'user' && $module->module == 'Company Branch')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <h4 class="panel-title">Customers (User)</h4>
+                                  </a>
+                                  <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                    <div class="panel-body">
+                                      
+                                      <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'user' && $module->module == 'Customers')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <!-- <div class="panel">
                                   <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     <h4 class="panel-title">Collapsible Group Items #3</h4>
                                   </a>
@@ -379,7 +1213,7 @@
                                       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor
                                     </div>
                                   </div>
-                                </div>
+                                </div> -->
                               </div>
                             <!-- end of accordion -->
                           </div>
@@ -407,7 +1241,7 @@
                                         </thead>
                                         <tbody>
                                           @foreach($modules as $module)
-                                          @if($module->role_name == 'default')
+                                          @if($module->role_name == 'default' && $module->module == 'Master Data')
                                           <tr>
                                             <th scope="row">{{$module->sub_module}}</th>
                                             <td>
@@ -459,18 +1293,299 @@
                                     </div>
                                   </div>
                                 </div>
-                                <!-- <div class="panel">
+                                <div class="panel">
                                   <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h4 class="panel-title">Collapsible Group Items #2</h4>
+                                    <h4 class="panel-title">Companies (Default)</h4>
                                   </a>
                                   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body">
-                                      <p><strong>Collapsible Item 2 data</strong>
-                                      </p>
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'default' && $module->module == 'Companies')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
                                     </div>
                                   </div>
                                 </div>
+                                <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <h4 class="panel-title">Branch (Default)</h4>
+                                  </a>
+                                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'default' && $module->module == 'Branch')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <h4 class="panel-title">Company Branch (Default)</h4>
+                                  </a>
+                                  <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                    <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'default' && $module->module == 'Compnay Branch')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <h4 class="panel-title">Customers (Default)</h4>
+                                  </a>
+                                  <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                    <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'default' && $module->module == 'Customers')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- 
                                 <div class="panel">
                                   <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     <h4 class="panel-title">Collapsible Group Items #3</h4>
@@ -510,7 +1625,7 @@
                                         </thead>
                                         <tbody>
                                           @foreach($modules as $module)
-                                          @if($module->role_name == 'guest')
+                                          @if($module->role_name == 'guest' && $module->module == 'Master Data')
                                           <tr>
                                             <th scope="row">{{$module->sub_module}}</th>
                                             <td>
@@ -562,19 +1677,299 @@
                                     </div>
                                   </div>
                                 </div>
-                                <!-- <div class="panel">
+                                <div class="panel">
                                   <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h4 class="panel-title">Collapsible Group Items #2</h4>
+                                    <h4 class="panel-title">Companies (Guest)</h4>
                                   </a>
                                   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body">
-                                      <p><strong>Collapsible Item 2 data</strong>
-                                      </p>
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'guest' && $module->module == 'Companies')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
                                     </div>
                                   </div>
                                 </div>
                                 <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <h4 class="panel-title">Branch (Guest)</h4>
+                                  </a>
+                                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'guest' && $module->module == 'Branch')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <h4 class="panel-title">Company Branch (Guest)</h4>
+                                  </a>
+                                  <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                    <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'guest' && $module->module == 'Company Branch')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <h4 class="panel-title">Customers (Guest)</h4>
+                                  </a>
+                                  <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                    <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'guest' && $module->module == 'Customers')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!--<div class="panel">
                                   <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     <h4 class="panel-title">Collapsible Group Items #3</h4>
                                   </a>
@@ -613,7 +2008,7 @@
                                         </thead>
                                         <tbody>
                                           @foreach($modules as $module)
-                                          @if($module->role_name == 'viewer')
+                                          @if($module->role_name == 'viewer' && $module->module == 'Master Data')
                                           <tr>
                                             <th scope="row">{{$module->sub_module}}</th>
                                             <td>
@@ -665,19 +2060,299 @@
                                     </div>
                                   </div>
                                 </div>
-                                <!-- <div class="panel">
+                                <div class="panel">
                                   <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h4 class="panel-title">Collapsible Group Items #2</h4>
+                                    <h4 class="panel-title">Companies (Viewer)</h4>
                                   </a>
                                   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body">
-                                      <p><strong>Collapsible Item 2 data</strong>
-                                      </p>
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'viewer' && $module->module == 'Companies')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
                                     </div>
                                   </div>
                                 </div>
                                 <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <h4 class="panel-title">Branch (Viewer)</h4>
+                                  </a>
+                                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'viewer' && $module->module == 'Branch')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <h4 class="panel-title">Company Branch (Viewer)</h4>
+                                  </a>
+                                  <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                    <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'viewer' && $module->module == 'Company Branch')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="panel">
+                                  <a class="panel-heading collapsed" role="tab" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <h4 class="panel-title">Customers (Viewer)</h4>
+                                  </a>
+                                  <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                    <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Modules</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>List/View</th>
+                                            <th>Print/Export</th>
+                                            <th>Import</th>
+
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($modules as $module)
+                                          @if($module->role_name == 'viewer' && $module->module == 'Customers')
+                                          <tr>
+                                            <th scope="row">{{$module->module}}</th>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->Add}}" data-type="Add" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}"  @if($module->Add == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->edit}}" data-type="edit" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->edit == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->delete}}" data-type="delete" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->delete == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td><td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->list}}" data-type="list" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->list == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->print}}" data-type="print" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->print == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" class="text-center" name="config" value="{{$module->import}}" data-type="import" data-role-id="{{$module->role_id}}" data-name="{{$module->module}}" data-sname="{{$module->sub_module}}" @if($module->import == 'y') checked @endif>
+                                                </label>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          @endif
+                                         @endforeach
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!--<div class="panel">
                                   <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     <h4 class="panel-title">Collapsible Group Items #3</h4>
                                   </a>

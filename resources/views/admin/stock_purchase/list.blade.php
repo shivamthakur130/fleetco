@@ -1,11 +1,10 @@
 @extends('layouts.master')
 
-    @section('title' , 'Admin|Group')
+    @section('title' , 'Admin|Stock Code')
 
 @section('main-content')
 
   
-
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
@@ -32,7 +31,7 @@
                 </div>
                 @endif
                   <div class="x_title">
-                  <!-- <a href="{{route('admin-area.group-add')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add Group</a> -->
+                  <a href="{{route('admin.stock.stock-purchase.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add New</a>
                     
                     <div class="clearfix"></div>
                   </div>
@@ -45,28 +44,53 @@
                                 <thead>
                                     <tr>
                                     <th>Sr No.</th>
-                                    <th>Group</th>
-                                    
+                                    <th>Type </th>
+                                    <th>Fleet</th>
+                                    <th>Date</th>
+                                    <th>Item Code</th>
+                                    <th>Brand</th>
+                                    <th>Desc</th>
+                                    <th>Supplier</th>
+                                    <th>Unit Cost</th>
+                                    <th>Qty</th>
+                                    <th>Po Ref.</th>
+                                    <th>Cost</th>
+                                    <th>Enterd By</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
                                     <tbody>
-                                    @if(count($roles) > 0)
-                                    @foreach($roles as $role)
-                                      <tr>
-                                      <td> {{ $loop->index+1 }} </td>
-                                      <td> {{ $role->label}} </td>
-                                      
-                                      <td>
-                                        <a href="{{route('admin-area.group-edit', $role->id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
-                                        </a>
-                                        <a href="{{route('admin-area.group-delete', $role->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
-                                        </a>
-                                      </td>
-                                      
-                                      </tr>
-                                      @endforeach
-                                    @endif
+                                        @foreach($stockPurchase as $sp)
+                                            <tr>
+                                                <td>{{ $loop->index+1 }}</td>
+                                                <td>{{$sp->type}}</td>
+                                                <td>
+                                                    @if(count($fleetTypes) > 0) 
+                                                        @foreach($fleetTypes as $fl) 
+                                                            @if($fl->id == $sp->fleet_type)  
+                                                            {{ $fl->fleet_type}} 
+                                                            @endif 
+                                                        @endforeach 
+                                                    @endif  
+                                                </td>
+                                                <td>{{$sp->date}}</td>
+
+                                                <td>{{$sp->item_code}}</td>
+                                                <td>{{$sp->brand}}</td>
+                                                <td>{{$sp->desc}}</td>
+                                                <td>{{$sp->supplier}}</td>
+                                                <td>{{$sp->unit_cost}}</td>
+                                                <td>{{$sp->qty}}</td>
+                                                <td>{{$sp->po_ref}}</td>
+                                                <td>{{$sp->cost}}</td>
+                                                <td>{{$sp->enterd_by}}</td>
+                                                <td>
+                                                    
+                                                </td>
+
+
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

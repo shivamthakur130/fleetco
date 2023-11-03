@@ -46,6 +46,7 @@
                                     <tr>
                                     <th>Sr No.</th>
                                     <th>Company Eid</th>
+                                    <th>Company Name</th>
                                     <th>Email</th>
                                     <th>Telephone</th>
                                     <th>Street</th>
@@ -61,6 +62,8 @@
                                       <tr>
                                       <td> {{ $loop->index + 1 }} </td>
                                       <td>{{$company->company_eid}}</td>
+                                      
+                                      <td> {{ $company->company_name}} </td>
                                       <td> {{ $company->email}} </td>
                                       <td> {{ $company->contact}} </td>
                                       <td>{{$company->street}}</td>

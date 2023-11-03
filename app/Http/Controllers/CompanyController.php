@@ -23,12 +23,14 @@ class CompanyController extends Controller
     public function store(request $request){
         $validated = $request->validate([
             'company_eid' => 'required',
-            'company_email' =>  'required'
+            'company_email' =>  'required',
+            'company_name' => 'required',
         ]);
         //dd($request->toARray());   
         $company = new Company;
         $company->unique_id = Str::random(40);
         $company->company_eid = $request->company_eid;
+        $company->company_name = $request->company_name;
         $company->email = $request->company_email;
         $company->street = $request->street;
         $company->contact = $request->company_phone_number;
@@ -36,7 +38,7 @@ class CompanyController extends Controller
         $company->state = $request->state;
         $company->country = $request->country;
         $company->zip = $request->postal_code;
-
+        $company->remainders = $request->remainder;
         $company->save();
 
         return redirect()->route('admin.company')->with('message', 'Company Saved successfully.');
@@ -50,16 +52,18 @@ class CompanyController extends Controller
     }
 
     public function update(request $request){
+       // dd($request->toArray());
         $company = Company::where('id',$request->id)->first();
         $company->company_eid = $request->company_eid;
         $company->email = $request->company_email;
+        $company->company_name = $request->company_name;
         $company->street = $request->street;
         $company->contact = $request->company_phone_number;
         $company->city = $request->city;
         $company->state = $request->state;
         $company->country = $request->country;
         $company->zip = $request->postal_code;
-        
+        $company->remainders = $request->remainder;
         $company->save();
     
         return redirect()->route('admin.company')->with('message', 'Company Update successfully.');

@@ -85,7 +85,17 @@
                                                 @endif
                                             </select> 
                                     </div>
+                                    <div class="form-group col-lg-4">
+                                        <label for="project_name" >Remainders</label>
+                                        <input type="text" class="form-control  @error('remainder') is-invalid @enderror" id="remainders" name="remainder" placeholder="Remainders"  value="{{$companyBranch->remainders}}" >
+                                            @error('remainders')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                    </div>
                                 </div>
+                                
                                 <div class="row">
                                     <div class="form-group col-lg-12">
                                         <label for="project_name" >Street</label>

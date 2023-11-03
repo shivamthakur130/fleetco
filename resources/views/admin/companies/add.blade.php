@@ -36,6 +36,15 @@
                                             @enderror
                                     </div>
                                     <div class="form-group col-lg-4">
+                                        <label for="project_name" >Company Name</label>
+                                        <input type="text" class="form-control  @error('company_name') is-invalid @enderror" id="company_name" name="company_name" placeholder="Company Name">
+                                            @error('company_name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                    </div>
+                                    <div class="form-group col-lg-4">
                                         <label for="project_url" >Company Email</label>
                                         <input type="email" class="form-control  @error('company_email') is-invalid @enderror" id="driver_license" name="company_email"placeholder="Company Email">
                                         @error('company_email')
@@ -53,7 +62,15 @@
                                             </span>
                                         @enderror
                                     </div>
-                                   
+                                    <div class="form-group col-lg-4">
+                                        <label for="project_name" >Remainders</label>
+                                        <input type="text" class="form-control  @error('remainder') is-invalid @enderror" id="remainder" name="remainder" placeholder="Remainders">
+                                            @error('remainder')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-lg-12">

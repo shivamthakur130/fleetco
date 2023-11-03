@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-    @section('title' , 'Admin|Group')
+    @section('title' , 'Admin|Service Rate')
 
 @section('main-content')
 
@@ -32,7 +32,7 @@
                 </div>
                 @endif
                   <div class="x_title">
-                  <!-- <a href="{{route('admin-area.group-add')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add Group</a> -->
+                  <a href="{{route('admin.service.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add Service Rate</a>
                     
                     <div class="clearfix"></div>
                   </div>
@@ -45,28 +45,38 @@
                                 <thead>
                                     <tr>
                                     <th>Sr No.</th>
-                                    <th>Group</th>
-                                    
+                                    <th>Service Name</th>
+                                    <th>Service Order Type</th>
+                                    <th>Base Fee</th>
+                                    <th>Rate Cal Method</th>
+                                    <th>Duration Terms</th>
+                                    <!-- <th>Cash on Delivery</th>
+                                    <th>Peak Hours</th> -->
+                                    <th>Restrict Service Area</th>
+
                                     <th>Action</th>
                                     </tr>
                                 </thead>
                                     <tbody>
-                                    @if(count($roles) > 0)
-                                    @foreach($roles as $role)
+                                      @foreach($services as $ser)
                                       <tr>
                                       <td> {{ $loop->index+1 }} </td>
-                                      <td> {{ $role->label}} </td>
-                                      
+                                      <td> {{ $ser->service_name}} </td>
+                                      <td> {{ $ser->service_order_type}} </td>
+                                      <td> {{ $ser->base_fee}} </td>
+                                      <td> {{ $ser->rate_calculation_method}} </td>
+                                      <td> {{ $ser->duration_terms}} </td>
+                                      <!-- <td> {{ $ser->cash_on_delivery}} </td>
+                                      <td> {{ $ser->peak_hours}} </td> -->
+                                      <td> {{ $ser->restrict_service_area}} </td>
                                       <td>
-                                        <a href="{{route('admin-area.group-edit', $role->id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
+                                      <a href="{{route('admin.service.edit', $ser->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{route('admin-area.group-delete', $role->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
+                                        <a href="{{route('admin.service.delete', $ser->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
                                         </a>
                                       </td>
-                                      
                                       </tr>
                                       @endforeach
-                                    @endif
                                     </tbody>
                                 </table>
                             </div>

@@ -188,11 +188,23 @@ Route::get('/admin/renewal/other/edit/{id}', [App\Http\Controllers\OtherRenewalC
 Route::get('/admin/renewal/other/delete/{id}', [App\Http\Controllers\OtherRenewalController::class, 'destroy'])->name('admin.other.renewal.delete');
 Route::post('/admin/renewal/other/update', [App\Http\Controllers\OtherRenewalController::class, 'update'])->name('admin.other.renewal.update');
 
+
+//admin ->stock purchase
+Route::get('/admin/stock/stock-purchase', [App\Http\Controllers\StockPurchaseController::class, 'index'])->name('admin.stock.stock-purchase');
+Route::get('/admin/stock/stock-purchase/create', [App\Http\Controllers\StockPurchaseController::class, 'create'])->name('admin.stock.stock-purchase.create');
+Route::get('/admin/stock/stock-purchase/getDetail/{id}', [App\Http\Controllers\StockPurchaseController::class, 'getDetail']);
+Route::post('/admin/stock/stock-purchase/store', [App\Http\Controllers\StockPurchaseController::class, 'store'])->name('admin.stock.stock-purchase.store');
 //users
 Route::get('/user/profile', [App\Http\Controllers\HomeController::class, 'userProfile'])->name('user.profile');
 Route::post('/user/profile/update', [App\Http\Controllers\HomeController::class, 'userProfileUpdate'])->name('user.profile-update');
 
-
+//admin ->stock purchase
+Route::get('/admin/service-rate', [App\Http\Controllers\ServiceController::class, 'index'])->name('admin.service.rate');
+Route::get('/admin/service-rate/create', [App\Http\Controllers\ServiceController::class, 'create'])->name('admin.service.create');
+Route::post('/admin/service-rate/save', [App\Http\Controllers\ServiceController::class, 'store'])->name('admin.service.store');
+Route::get('/admin/service-rate/delete/{id}', [App\Http\Controllers\ServiceController::class, 'destroy'])->name('admin.service.delete');
+Route::get('/admin/service-rate/edit/{id}', [App\Http\Controllers\ServiceController::class, 'edit'])->name('admin.service.edit');
+Route::post('/admin/service-rate/update', [App\Http\Controllers\ServiceController::class, 'update'])->name('admin.service.update');
 
 // Route::group(['prefix' => 'admin'],function(){
 

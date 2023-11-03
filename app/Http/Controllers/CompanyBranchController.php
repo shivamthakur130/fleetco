@@ -45,6 +45,7 @@ class CompanyBranchController extends Controller
         $company->state = $request->state;
         $company->country = $request->country;
         $company->zip = $request->postal_code;
+        $company->remainders = $request->remainder;
 
         $company->save();
 
@@ -61,6 +62,7 @@ class CompanyBranchController extends Controller
     }
 
     public function update(request $request){
+        //dd($request->toarray());
         $company = CompanyBranch::where('id',$request->id)->first();
         $company->unique_id = Str::random(40);
         $company->branch_eid = $request->branch_eid;
@@ -74,6 +76,7 @@ class CompanyBranchController extends Controller
         $company->state = $request->state;
         $company->country = $request->country;
         $company->zip = $request->postal_code;
+        $company->remainders = $request->remainder;
         $company->save();
     
         return redirect()->route('admin.company.branch')->with('message', 'Company Branch Update successfully.');

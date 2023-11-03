@@ -36,6 +36,15 @@
                                             @enderror
                                     </div>
                                     <div class="form-group col-lg-4">
+                                        <label for="project_name" >Company Name</label>
+                                        <input type="text" class="form-control  @error('company_name') is-invalid @enderror" value="{{$company->company_name}}" id="company_name" name="company_name" placeholder="Company Name">
+                                            @error('company_name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                    </div>
+                                    <div class="form-group col-lg-4">
                                         <label for="project_url" >Company Email</label>
                                         <input type="email" class="form-control  @error('company_email') is-invalid @enderror" value="{{$company->email}}" id="driver_license" name="company_email"placeholder="Company Email">
                                         @error('company_email')
@@ -48,6 +57,15 @@
                                         <label for="project_url" >Company Phone</label>
                                         <input type="text" class="form-control  @error('company_phone_number') is-invalid @enderror" value="{{$company->contact}}" id="phone_number" name="company_phone_number" placeholder="Company Phone Number">
                                         @error('company_phone_number')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <label for="project_url" >Remainders</label>
+                                        <input type="text" class="form-control  @error('remainder') is-invalid @enderror" value="{{$company->remainders}}" id="remainder" name="remainder" placeholder="Remainders">
+                                        @error('remainder')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                             </span>

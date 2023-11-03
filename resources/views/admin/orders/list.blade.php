@@ -63,15 +63,15 @@
                                       <td>{{$order->order_type}}</td>
                                       <td> {{ $order->internal_id}} </td>
                                       <td> {{ $order->schedule_date}} </td>
-                                      <td> {{ $order->customer}} </td>
-                                      <td>{{$order->driver_assign}}</td>
-                                      <!-- <td>{{$customer->country}}</td> -->
+                                      <td>@if(count($customers)) @foreach($customers as $cust)  @if($cust->id == $order->customer) {{ $cust->name}} @endif @endforeach @endif</td>
+                                      <td>@if(count($drivers)) @foreach($drivers as $driver) @if($driver->id == $order->driver_assign) {{$driver->name }} @endif @endforeach @endif</td>
+                                      
                                       <td>{{$order->facilitator}}</td>
                                       
                                       <td>
-                                        <a href="{{route('admin.customer.edit', $order->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
+                                        <a href="{{route('admin.order.edit', $order->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{route('admin.customer.delete', $order->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
+                                        <a href="{{route('admin.order.delete', $order->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
                                         </a>
                                       </td>
                                       

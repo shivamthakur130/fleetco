@@ -15,7 +15,7 @@ class PermissionController extends Controller
         $roles = Role::get();
         $modules = ModuleOperation::get();
         
-        //dd($roles->toArray());
+        //dd($modules->toArray());
         return view('admin.permissions.list',compact('roles','modules'));
     }
 

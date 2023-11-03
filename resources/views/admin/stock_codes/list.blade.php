@@ -58,7 +58,7 @@
                                       <td> {{ $loop->index+1 }} </td>
                                       <td> {{ $code->item_id}} </td>
                                       <td> {{ $code->brand}} </td>
-                                      <td>@if(count($suppliers) > 0) @foreach($suppliers as $spp) @if($code->supplier == $spp->id ) {{$spp->supplier_name}} @endif @endforeach @endif</td>
+                                      <td>{{ $code->supplier}}</td>
                                       
                                       <td>
                                         <a href="{{route('admin.stock-code.edit', $code->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>

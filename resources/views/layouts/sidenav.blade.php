@@ -8,7 +8,7 @@
                   <li class="nav {{ Request()->is('admin-area') || Request()->is('admin-area/user-add') || Request()->is('admin-area/user-edit/*') ? 'active' : '' }}"><a href="{{route('admin-area')}}"><i class="fa fa-users"></i> Users </a>
                   <li class="nav {{ Request()->is('admin-area/group') || Request()->is('admin-area/group-add') || Request()->is('admin-area/group-edit/*') ? 'active' : '' }}"><a href="{{route('admin-area.group')}}"><i class="fa fa-group"></i> Groups </a>
                   </li>
-                  <li class="nav {{ Request()->is('admin-area/permissions') ? 'active' : '' }}"><a href="{{route('admin-area.permission')}}"><i class="fa fa-group"></i> Permissions </a>
+                  <!-- <li class="nav {{ Request()->is('admin-area/permissions') ? 'active' : '' }}"><a href="{{route('admin-area.permission')}}"><i class="fa fa-group"></i> Permissions </a> -->
                   @else
                   <li class="nav"><a href="{{route('home')}}"><i class="fa fa-home"></i> Dashboard </a>
                    
@@ -20,7 +20,7 @@
                   <li class="nav"><a href="{{route('admin.driver')}}"><i class="fa fa-users"></i> Driver Mangement </a>
                   <li class="nav"><a href="{{route('admin.customer')}}"><i class="fa fa-users"></i> Customer Mangement </a>
                   
-
+                  <li class="nav"><a href="{{route('admin.service.rate')}}"><i class="fa fa-users"></i> Service Rate </a>
                   <li class="nav"><a href="{{route('admin.order')}}"><i class="fa fa-users"></i> Order Mangement </a>
                   <li><a><i class="fa fa-table"></i> Master Data <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -47,12 +47,12 @@
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Stocks <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#">Stock Purchases</a></li>
+                    <!-- <ul class="nav child_menu">
+                      <li><a href="{{route('admin.stock.stock-purchase')}}">Stock Purchases</a></li>
                       <li><a href="#">Stock Issues</a></li>
                       <li><a href="#">Removals</a></li>
                       <li><a href="#">Disposals</a></li>
-                    </ul>
+                    </ul> -->
                   </li>
                   <li><a><i class="fa fa-sitemap"></i> Rebuilt Types <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -232,10 +232,10 @@
                 </li>
 
                 <li role="presentation" class="nav-item dropdown open">
-                  <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                  <!-- <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
                     <span class="badge bg-green">6</span>
-                  </a>
+                  </a> -->
                   <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                     <li class="nav-item">
                       <a class="dropdown-item">

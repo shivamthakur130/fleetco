@@ -60,7 +60,7 @@
                                             <select class="form-control select2" id="supplier" data-placeholder="Select Vendor" name ="supplier" style="width: 100%;">
                                                 @if(count($suppliers) > 0)
                                                 @foreach($suppliers as $supplier)
-                                                <option value="{{$supplier->id}}" >{{$supplier->supplier_name}}</option>
+                                                <option value="{{$supplier->supplier_name}}" >{{$supplier->supplier_name}}</option>
                                                 @endforeach
                                                 @endif
                                             </select> 
