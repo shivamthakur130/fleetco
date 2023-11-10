@@ -92,15 +92,7 @@
                                    
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-lg-4">
-                                        <label for="project_name" >Postal Code</label>
-                                        <input type="text" class="form-control  @error('postal_code') is-invalid @enderror" id="postal_code" name="postal_code" value="{{$customer->postal_code}}" placeholder="Postal Code">
-                                            @error('postal_code')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                    </div>
+                                    
                                     <div class="form-group col-lg-4">
                                         <label for="project_name" >City</label>
                                         <input type="text" class="form-control  @error('city') is-invalid @enderror" id="city" name="city" value="{{$customer->city}}" placeholder="City">
@@ -119,7 +111,15 @@
                                             </span>
                                             @enderror
                                     </div>
-                                   
+                                    <div class="form-group col-lg-4">
+                                        <label for="project_name" >Zip Code</label>
+                                        <input type="text" class="form-control  @error('postal_code') is-invalid @enderror" id="postal_code" name="postal_code" value="{{$customer->postal_code}}" placeholder="Zip Code">
+                                            @error('postal_code')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                    </div>
                                 </div>
                                 <div class="row">
                                    

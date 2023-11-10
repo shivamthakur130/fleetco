@@ -107,7 +107,7 @@ input:checked + .slider:before {
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_name" >Base Fee</label>
-                                        <input type="number" class="form-control  @error('base_fee') is-invalid @enderror" id="base_fee" name="base_fee" placeholder="Base Fee" autofocus>
+                                        <input type="text" value="0.00" class="form-control  @error('base_fee') is-invalid @enderror" id="base_fee" name="base_fee" placeholder="Base Fee" autofocus>
                                         @error('base_fee')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -166,7 +166,7 @@ input:checked + .slider:before {
                                     
                                     </div>
                                 </div>
-                                <h6>Restric Service</h6>
+                                <h6>Restrict Service</h6>
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_name" >Service Area</label>
@@ -222,7 +222,12 @@ input:checked + .slider:before {
     <script src="{{ asset('assets/js/custom.min.js')}}"></script>
 
     <script>
+    var test = document.getElementById("base_fee");
+    var text= "$"+test.value;
+    document.getElementById("base_fee").value = text;
+    ///document.write();
 $(function () {
+    
   /* CFetching image instantly */
   function readURL(input) {
         if (input.files && input.files[0]) {

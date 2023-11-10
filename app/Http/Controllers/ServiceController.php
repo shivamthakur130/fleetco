@@ -26,17 +26,22 @@ class ServiceController extends Controller
     }
 
     public function store(request $request){
+
+        //dd($request->toARray());
         $validated = $request->validate([
             'service_name' => 'required',
             'base_fee' => 'required',
             'service_order_type' => 'required',
         ]);
+        $str = $request->base_fee;
+        //echo $str . "<br>";
+        $var = trim($str,"$");
 
         $st = new Service;
         $st->unique_id = Str::random(40);
         $st->service_name = $request->service_name;
         $st->service_order_type = $request->service_order_type;
-        $st->base_fee = $request->base_fee;
+        $st->base_fee = $var;
         $st->rate_calculation_method = $request->rate_calculation_method;
         $st->duration_terms = $request->duration_terms;
         $st->cash_on_delivery = $request->cod;
@@ -62,10 +67,13 @@ class ServiceController extends Controller
     }
 
     public function update(request $request){
+        $str = $request->base_fee;
+        //echo $str . "<br>";
+        $var = trim($str,"$");
         $st = Service::where('id', $request->id)->first();
         $st->service_name = $request->service_name;
         $st->service_order_type = $request->service_order_type;
-        $st->base_fee = $request->base_fee;
+        $st->base_fee = $var;
         $st->rate_calculation_method = $request->rate_calculation_method;
         $st->duration_terms = $request->duration_terms;
         $st->cash_on_delivery = $request->cod;

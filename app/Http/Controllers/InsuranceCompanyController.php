@@ -45,6 +45,7 @@ class InsuranceCompanyController extends Controller
         $ic->country = $request->country;
         $ic->state = $request->state;
         $ic->address = $request->address;
+        $ic->address_2 = $request->address_2;
         $ic->zip = $request->zip;
         $ic->save();
     
@@ -73,6 +74,7 @@ class InsuranceCompanyController extends Controller
         $ic->country = $request->country;
         $ic->state = $request->state;
         $ic->address = $request->address;
+        $ic->address_2 = $request->address_2;
         $ic->zip = $request->zip;
         $ic->save();
         return redirect()->route('admin.insurance')->with('message', 'Insurance Company Update successfully.');

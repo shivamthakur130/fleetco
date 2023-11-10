@@ -45,7 +45,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-4">
                                         <label for="project_name" >Internal Id</label>
-                                        <input type="text" class="form-control  @error('internal_id') is-invalid @enderror"  readonly="" value="@if(count($drivers) > 0) {{count($drivers)+1}} @else {{1}} @endif" id="internal_id" name="internal_id" placeholder="Internal Id" autofocus>
+                                        <input type="text" class="form-control  @error('internal_id') is-invalid @enderror"  readonly="" id="internal_id" name="internal_id" placeholder="Internal Id" autofocus>
                                         @error('internal_id')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -113,6 +113,28 @@
                                             </select> 
                                     </div>
                                     <div class="form-group col-lg-4">
+                                        <label for="project_url" >Street Address</label>
+                                        <input type="text" class="form-control  @error('address') is-invalid @enderror" id="address" name="address" placeholder="Address">
+                                        @error('address')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <label for="project_url" >Street Address 2</label>
+                                        <input type="text" class="form-control  @error('address') is-invalid @enderror" id="address" name="address_2" placeholder="Address 2">
+                                        @error('address_2')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="row">
+                                <div class="form-group col-lg-4">
                                         <label for="project_url" >City</label>
                                         <input type="text" class="form-control  @error('city') is-invalid @enderror" id="city" name="city" placeholder="City">
                                         @error('city')
@@ -121,7 +143,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="form-group col-lg-4">
+                                <div class="form-group col-lg-4">
                                         <label for="project_url" >State</label>
                                         <input type="text" class="form-control  @error('state') is-invalid @enderror" id="state" name="state" placeholder="State">
                                         @error('state')
@@ -131,12 +153,10 @@
                                         @enderror
                                     </div>
                                     
-                                </div>
-                                <div class="row">
                                     <div class="form-group col-lg-4">
-                                        <label for="project_url" >Street Address</label>
-                                        <input type="text" class="form-control  @error('address') is-invalid @enderror" id="address" name="address" placeholder="Address">
-                                        @error('address')
+                                        <label for="project_url" >Zip Code</label>
+                                        <input type="text" class="form-control  @error('zip') is-invalid @enderror" id="zip" name="zip" placeholder="Zip Code">
+                                        @error('zip')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                             </span>
@@ -151,15 +171,6 @@
                                                 @endforeach
                                                 @endif
                                             </select> 
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <label for="project_url" >Zip Code</label>
-                                        <input type="text" class="form-control  @error('zip') is-invalid @enderror" id="zip" name="zip" placeholder="Zip Code">
-                                        @error('zip')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
                                     </div>
                                 </div>
                                 
@@ -219,6 +230,22 @@ $(function () {
     $("#customFile").change(function(){
         readURL(this);
     });
+
+    var alphanumericCode = generateAlphanumericCode(8); // Change 8 to the desired code length
+        //alert(alphanumericCode);
+        $('#internal_id').val(alphanumericCode);
+
+
+
+        function generateAlphanumericCode(length) {
+        var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var code = "";
+        for (var i = 0; i < length; i++) {
+            var randomIndex = Math.floor(Math.random() * charset.length);
+            code += charset[randomIndex];
+        }
+        return code;
+    }
    
 });
 </script>

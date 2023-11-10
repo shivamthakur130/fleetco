@@ -45,6 +45,7 @@ class FuelController extends Controller
         $fuel->country = $request->country;
         $fuel->state = $request->state;
         $fuel->address = $request->address;
+        $fuel->address_2 = $request->address_2;
         $fuel->zip = $request->zip;
         $fuel->save();
     
@@ -69,6 +70,7 @@ class FuelController extends Controller
         $fuel->country = $request->country;
         $fuel->state = $request->state;
         $fuel->address = $request->address;
+        $fuel->address_2 = $request->address_2;
         $fuel->zip = $request->zip;
         $fuel->save();
         return redirect()->route('admin.fuel')->with('message', 'Fuel Station Update successfully.');

@@ -405,6 +405,21 @@
 
 <script>
 $(function () {
+    var alphanumericCode = generateAlphanumericCode(8); // Change 8 to the desired code length
+        //alert(alphanumericCode);
+        $('#internal_id').val(alphanumericCode);
+
+
+
+        function generateAlphanumericCode(length) {
+        var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var code = "";
+        for (var i = 0; i < length; i++) {
+            var randomIndex = Math.floor(Math.random() * charset.length);
+            code += charset[randomIndex];
+        }
+        return code;
+    }
   /* CFetching image instantly */
   function readURL(input) {
         if (input.files && input.files[0]) {

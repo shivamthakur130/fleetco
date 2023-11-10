@@ -29,7 +29,7 @@
                                     <div class="form-group col-lg-4">
                                     <label for="first_name" >Image</label>
                                         <div class="custom-file">
-                                        <input type="file" class="form-control custom-file-input @error('logo') is-invalid @enderror" readonly id="customFile" name="image" accept=".png, .jpg, .jpeg">
+                                        <input type="file" class="form-control custom-file-input @error('logo') is-invalid @enderror" id="customFile" name="image" accept=".png, .jpg, .jpeg">
                                         <label class="custom-file-label" for="customFile">Image</label>
                                             @error('logo')
                                             <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-4">
                                         <label for="project_name" >Internal Id</label>
-                                        <input type="text" class="form-control  @error('internal_id') is-invalid @enderror" id="internal_id" name="internal_id" value="{{$driver->internal_id}}" placeholder="Internal Id" autofocus>
+                                        <input type="text" class="form-control  @error('internal_id') is-invalid @enderror" readonly id="internal_id" name="internal_id" value="{{$driver->internal_id}}" placeholder="Internal Id" autofocus>
                                         @error('internal_id')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -117,6 +117,28 @@
                                             </select> 
                                     </div>
                                     <div class="form-group col-lg-4">
+                                        <label for="project_url" >Street Address</label>
+                                        <input type="text" class="form-control  @error('address') is-invalid @enderror" value="{{$driver->address}}" id="address" name="address" placeholder="Address">
+                                        @error('address')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <label for="project_url" >Street Address 2</label>
+                                        <input type="text" class="form-control  @error('address') is-invalid @enderror" value="{{$driver->address_2}}" id="address" name="address_2" placeholder="Address 2">
+                                        @error('address_2')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                   
+                                   
+                                </div>
+                                <div class="row">
+                                <div class="form-group col-lg-4">
                                         <label for="project_url" >City</label>
                                         <input type="text" class="form-control  @error('city') is-invalid @enderror" id="city" name="city"  value="{{$driver->city}}" placeholder="City">
                                         @error('city')
@@ -125,7 +147,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="form-group col-lg-4">
+                                <div class="form-group col-lg-4">
                                         <label for="project_url" >State</label>
                                         <input type="text" class="form-control  @error('state') is-invalid @enderror" id="state"  value="{{$driver->state}}" name="state" placeholder="State">
                                         @error('state')
@@ -134,12 +156,11 @@
                                             </span>
                                         @enderror
                                     </div>
-                                </div>
-                                <div class="row">
+                                    
                                     <div class="form-group col-lg-4">
-                                        <label for="project_url" >Street Address</label>
-                                        <input type="text" class="form-control  @error('address') is-invalid @enderror" value="{{$driver->address}}" id="address" name="address" placeholder="Address">
-                                        @error('address')
+                                        <label for="project_url" >Zip Code</label>
+                                        <input type="text" class="form-control  @error('zip') is-invalid @enderror"  value="{{$driver->zip}}" id="zip" name="zip" placeholder="Zip Code">
+                                        @error('zip')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                             </span>
@@ -154,15 +175,6 @@
                                                 @endforeach
                                                 @endif
                                             </select> 
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <label for="project_url" >Zip Code</label>
-                                        <input type="text" class="form-control  @error('zip') is-invalid @enderror"  value="{{$driver->zip}}" id="zip" name="zip" placeholder="Zip Code">
-                                        @error('zip')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
                                     </div>
                                 </div>
                                 

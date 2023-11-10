@@ -108,17 +108,21 @@
                                     </div>
                                    
                                 </div>
-                                
                                 <div class="row">
-                                    <div class="form-group col-lg-4">
-                                        <label for="project_name" >Postal Code</label>
-                                        <input type="text" class="form-control  @error('postal_code') is-invalid @enderror" id="postal_code" name="postal_code" value="{{$companyBranch->zip}}" placeholder="Postal Code">
-                                            @error('postal_code')
+                                    <div class="form-group col-lg-12">
+                                        <label for="project_name" >Street 2</label>
+                                        <input type="text" class="form-control  @error('street_2') is-invalid @enderror" id="street_2" name="street_2" value="{{$companyBranch->street_2}}" placeholder="Street 2">
+                                            @error('street_2')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                             </span>
                                             @enderror
                                     </div>
+                                   
+                                </div>
+                                
+                                <div class="row">
+                                    
                                     <div class="form-group col-lg-4">
                                         <label for="project_name" >City</label>
                                         <input type="text" class="form-control  @error('city') is-invalid @enderror" id="city" name="city" value="{{$companyBranch->city}}" placeholder="City">
@@ -137,7 +141,15 @@
                                             </span>
                                             @enderror
                                     </div>
-                                   
+                                    <div class="form-group col-lg-4">
+                                        <label for="project_name" >Zip Code</label>
+                                        <input type="text" class="form-control  @error('zip_code') is-invalid @enderror" id="postal_code" name="postal_code" value="{{$companyBranch->zip}}" placeholder="Zip Code">
+                                            @error('zip_code')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                    </div>
                                 </div>
                                 <div class="row">
                                    

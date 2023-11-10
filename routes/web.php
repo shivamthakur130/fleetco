@@ -194,6 +194,11 @@ Route::get('/admin/stock/stock-purchase', [App\Http\Controllers\StockPurchaseCon
 Route::get('/admin/stock/stock-purchase/create', [App\Http\Controllers\StockPurchaseController::class, 'create'])->name('admin.stock.stock-purchase.create');
 Route::get('/admin/stock/stock-purchase/getDetail/{id}', [App\Http\Controllers\StockPurchaseController::class, 'getDetail']);
 Route::post('/admin/stock/stock-purchase/store', [App\Http\Controllers\StockPurchaseController::class, 'store'])->name('admin.stock.stock-purchase.store');
+Route::get('/admin/stock/stock-purchase/delete/{id}', [App\Http\Controllers\StockPurchaseController::class, 'destroy'])->name('admin.stock.stock-purchase.delete');
+Route::get('/admin/stock/stock-purchase/edit/{id}', [App\Http\Controllers\StockPurchaseController::class, 'edit'])->name('admin.stock.stock-purchase.edit');
+Route::post('/admin/stock/stock-purchase/update', [App\Http\Controllers\StockPurchaseController::class, 'update'])->name('admin.stock.stock-purchase.update');
+
+
 //users
 Route::get('/user/profile', [App\Http\Controllers\HomeController::class, 'userProfile'])->name('user.profile');
 Route::post('/user/profile/update', [App\Http\Controllers\HomeController::class, 'userProfileUpdate'])->name('user.profile-update');

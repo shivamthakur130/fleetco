@@ -39,6 +39,7 @@ class CompanyBranchController extends Controller
         $company->branch_email = $request->branch_email;
         $company->branch_type = $request->branch_type;
         $company->street = $request->street;
+        $company->street_2 = $request->street_2;
         $company->branch_contact = $request->branch_contact;
         $company->company_id = $request->company_id;
         $company->city = $request->city;
@@ -70,6 +71,7 @@ class CompanyBranchController extends Controller
         $company->branch_email = $request->branch_email;
         $company->branch_type = $request->branch_type;
         $company->street = $request->street;
+        $company->street_2 = $request->street_2;
         $company->branch_contact = $request->branch_contact;
         $company->company_id = $request->company_id;
         $company->city = $request->city;

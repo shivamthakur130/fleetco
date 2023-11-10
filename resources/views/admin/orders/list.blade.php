@@ -62,7 +62,7 @@
                                       <td> {{ $loop->index + 1 }} </td>
                                       <td>{{$order->order_type}}</td>
                                       <td> {{ $order->internal_id}} </td>
-                                      <td> {{ $order->schedule_date}} </td>
+                                      <td> {{ date_format (new DateTime($order->schedule_date), 'd-m-Y h:i:s a');}} </td>
                                       <td>@if(count($customers)) @foreach($customers as $cust)  @if($cust->id == $order->customer) {{ $cust->name}} @endif @endforeach @endif</td>
                                       <td>@if(count($drivers)) @foreach($drivers as $driver) @if($driver->id == $order->driver_assign) {{$driver->name }} @endif @endforeach @endif</td>
                                       

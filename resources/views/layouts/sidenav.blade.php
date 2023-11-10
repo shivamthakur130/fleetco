@@ -47,12 +47,12 @@
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Stocks <span class="fa fa-chevron-down"></span></a>
-                    <!-- <ul class="nav child_menu">
+                    <ul class="nav child_menu">
                       <li><a href="{{route('admin.stock.stock-purchase')}}">Stock Purchases</a></li>
                       <li><a href="#">Stock Issues</a></li>
                       <li><a href="#">Removals</a></li>
                       <li><a href="#">Disposals</a></li>
-                    </ul> -->
+                    </ul>
                   </li>
                   <li><a><i class="fa fa-sitemap"></i> Rebuilt Types <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">

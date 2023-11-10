@@ -33,6 +33,7 @@ class CompanyController extends Controller
         $company->company_name = $request->company_name;
         $company->email = $request->company_email;
         $company->street = $request->street;
+        $company->street_2 = $request->street_2;
         $company->contact = $request->company_phone_number;
         $company->city = $request->city;
         $company->state = $request->state;
@@ -61,6 +62,7 @@ class CompanyController extends Controller
         $company->contact = $request->company_phone_number;
         $company->city = $request->city;
         $company->state = $request->state;
+        $company->street_2 = $request->street_2;
         $company->country = $request->country;
         $company->zip = $request->postal_code;
         $company->remainders = $request->remainder;

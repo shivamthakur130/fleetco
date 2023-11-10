@@ -62,4 +62,39 @@ class StockPurchaseController extends Controller
 
         return redirect()->route('admin.stock.stock-purchase')->with('message', 'Saved successfully.');
     }
+
+    public function destroy($id){
+        $sp = StockPurchase::where('id', $id)->first();
+        $sp->delete();
+        return redirect()->route('admin.stock.stock-purchase')->with('error', 'Deleted successfully.');
+
+    }
+
+    public function edit($id){
+        $fleetTypes = FleetType::get();
+        $stockCodes = StockCode::get();
+        $purchase = StockPurchase::where('unique_id',$id)->first();
+        return view('admin.stock_purchase.edit', compact('purchase','fleetTypes','stockCodes'));
+    }
+
+    public function update(request $request){
+        $sp = StockPurchase::where('id', $request->id)->first();
+        $sp->type = $request->type;
+        $sp->date = $request->date;
+        $sp->fleet_type = $request->fleet;
+        $sp->item_code = $request->item_code;
+        $sp->unit_cost = $request->unit_cost;
+        $sp->po_ref = $request->po_ref;
+        $sp->brand = $request->brand;
+        $sp->desc = $request->desc;
+        $sp->supplier = $request->supplier;
+        $sp->qty = $request->qty;
+        $sp->cost = $request->unit_cost * $request->qty;
+    
+        $sp->enterd_by = Auth::user()->name;
+        $sp->system_date = date('Y-m-d');
+        $sp->save();
+
+        return redirect()->route('admin.stock.stock-purchase')->with('message', 'Saved successfully.');
+    }
 }

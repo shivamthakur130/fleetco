@@ -55,6 +55,7 @@ class DriverController extends Controller
         $driver->country = $request->country;
         $driver->state = $request->state;
         $driver->address = $request->address;
+        $driver->address_2 = $request->address_2;
         $driver->zip = $request->zip;
         
         if($files = $request->file('image')) {
@@ -98,6 +99,7 @@ class DriverController extends Controller
         $driver->country = $request->country;
         $driver->state = $request->state;
         $driver->address = $request->address;
+        $driver->address_2 = $request->address_2;
         $driver->zip = $request->zip;
 
         if($files = $request->file('image')) {

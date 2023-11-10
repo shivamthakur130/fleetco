@@ -75,7 +75,15 @@
                                                 </td>
                                                 <td>{{$sp->date}}</td>
 
-                                                <td>{{$sp->item_code}}</td>
+                                                <td>
+                                                @if(count($stockCodes) > 0) 
+                                                        @foreach($stockCodes as $sc) 
+                                                            @if($sc->id == $sp->item_code)  
+                                                            {{ $sc->item_id}} 
+                                                            @endif 
+                                                        @endforeach 
+                                                    @endif  
+                                                  </td>
                                                 <td>{{$sp->brand}}</td>
                                                 <td>{{$sp->desc}}</td>
                                                 <td>{{$sp->supplier}}</td>
@@ -85,7 +93,10 @@
                                                 <td>{{$sp->cost}}</td>
                                                 <td>{{$sp->enterd_by}}</td>
                                                 <td>
-                                                    
+                                                  <a href="{{route('admin.stock.stock-purchase.edit', $sp->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
+                                                  </a>
+                                                  <a href="{{route('admin.stock.stock-purchase.delete', $sp->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
+                                                  </a>
                                                 </td>
 
 

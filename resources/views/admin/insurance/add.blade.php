@@ -66,6 +66,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-lg-6">
+                                        <label for="project_url" >Street Address 2</label>
+                                        <input type="text" class="form-control  @error('address') is-invalid @enderror" id="address_2" name="address_2" placeholder="Address 2">
+                                        @error('address_2')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-lg-6">
                                         <label for="project_url" >City</label>
                                         <input type="text" class="form-control  @error('city') is-invalid @enderror" id="city" name="city" placeholder="City">
                                         @error('city')

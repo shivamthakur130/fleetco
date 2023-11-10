@@ -63,7 +63,7 @@
                                       <td> {{ $loop->index+1 }} </td>
                                       <td> {{ $ser->service_name}} </td>
                                       <td> {{ $ser->service_order_type}} </td>
-                                      <td> {{ $ser->base_fee}} </td>
+                                      <td> ${{ $ser->base_fee}} </td>
                                       <td> {{ $ser->rate_calculation_method}} </td>
                                       <td> {{ $ser->duration_terms}} </td>
                                       <!-- <td> {{ $ser->cash_on_delivery}} </td>
