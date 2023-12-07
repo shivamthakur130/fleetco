@@ -156,6 +156,11 @@ Route::get('/admin/order/edit/{id}', [App\Http\Controllers\OrderController::clas
 Route::get('/admin/order/delete/{id}', [App\Http\Controllers\OrderController::class, 'destroy'])->name('admin.order.delete');
 Route::post('/admin/order/update', [App\Http\Controllers\OrderController::class, 'update'])->name('admin.order.update');
 
+Route::get('/admin/scheduler', [App\Http\Controllers\OrderController::class, 'schedule'])->name('admin.scheduler');
+Route::get('/admin/get-events', [App\Http\Controllers\OrderController::class, 'getEvents'])->name('admin.get-event');
+Route::get('/admin/calendar-event/{id}', [App\Http\Controllers\OrderController::class, 'calendarEvent']);
+
+
 //admin ->Data Master-fuel station
 Route::get('/admin/fuels', [App\Http\Controllers\FuelController::class, 'index'])->name('admin.fuel');
 Route::get('/admin/fuel/create', [App\Http\Controllers\FuelController::class, 'create'])->name('admin.fuel.create');

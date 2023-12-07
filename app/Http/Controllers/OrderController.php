@@ -125,4 +125,40 @@ class OrderController extends Controller
         $order->save();
         return redirect()->route('admin.order')->with('message', 'Update successfully.');
     }
+
+    public function schedule(){
+        $orders = Order::get();
+        $customers = Customer::get();
+        $drivers = Driver::get();
+        $companies = Company::get();
+        return view('admin.schedules.list', compact('orders','customers','drivers','companies'));
+    }
+
+    public function getEvents(){
+        $data = Order::get(['id','internal_id','schedule_date']);
+        //dd($data->toARray());
+        $results = [];
+
+        foreach($data as $record){
+            $ev = [];
+            $ev['id'] = $record->id;
+            $ev['title'] = $record->internal_id;
+            $ev['start'] = $record->schedule_date;
+            $ev['end'] = $record->schedule_date;
+            $ev['display'] = 'display';
+            $results[] = $ev;
+        }
+        
+        //return response($results);
+        return response()->json($results);
+    }
+
+    public function calendarEvent($id){
+        $data = Order::join('customers' , 'customers.id' ,'=', 'orders.customer')
+                    ->join('drivers', 'drivers.id' ,'=', 'orders.driver_assign')
+                    ->select('orders.*','customers.name as customer_name', 'drivers.name as driver_name')
+                    ->where('orders.id', $id)
+                    ->first();
+        return response()->json($data);
+    }
 }

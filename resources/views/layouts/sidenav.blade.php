@@ -22,6 +22,8 @@
                   
                   <li class="nav"><a href="{{route('admin.service.rate')}}"><i class="fa fa-users"></i> Service Rate </a>
                   <li class="nav"><a href="{{route('admin.order')}}"><i class="fa fa-users"></i> Order Mangement </a>
+                  <li class="nav"><a href="{{route('admin.scheduler')}}"><i class="fa fa-users"></i> Scheduler </a>
+
                   <li><a><i class="fa fa-table"></i> Master Data <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     <li><a href="{{route('admin.fleet')}}">Fleet</a></li>
