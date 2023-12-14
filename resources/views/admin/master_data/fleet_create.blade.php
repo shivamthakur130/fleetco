@@ -102,6 +102,16 @@
                                             </select> 
                                     </div>
                                     <div class="form-group col-lg-4">
+                                        <label for="category_id">Fleet</label>
+                                            <select class="form-control select2" id="fleet_type" data-placeholder="Select Fleet" name ="fleet_type" style="width: 100%;">
+                                                @if(count($fleetTypes) > 0)
+                                                @foreach($fleetTypes as $fleetType)
+                                                <option value="{{$fleetType->id}}" >{{$fleetType->fleet_type}}</option>
+                                                @endforeach
+                                                @endif
+                                            </select> 
+                                    </div>
+                                    <div class="form-group col-lg-4">
                                     <label for="first_name" >Image</label>
                                         <div class="custom-file">
                                         <input type="file" class="form-control custom-file-input @error('logo') is-invalid @enderror" id="customFile" name="image" accept=".png, .jpg, .jpeg">

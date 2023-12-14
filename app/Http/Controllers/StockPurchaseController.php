@@ -95,6 +95,6 @@ class StockPurchaseController extends Controller
         $sp->system_date = date('Y-m-d');
         $sp->save();
 
-        return redirect()->route('admin.stock.stock-purchase')->with('message', 'Saved successfully.');
+        return redirect()->route('admin.stock.stock-purchase')->with('message', 'Update successfully.');
     }
 }

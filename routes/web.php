@@ -203,6 +203,31 @@ Route::get('/admin/stock/stock-purchase/delete/{id}', [App\Http\Controllers\Stoc
 Route::get('/admin/stock/stock-purchase/edit/{id}', [App\Http\Controllers\StockPurchaseController::class, 'edit'])->name('admin.stock.stock-purchase.edit');
 Route::post('/admin/stock/stock-purchase/update', [App\Http\Controllers\StockPurchaseController::class, 'update'])->name('admin.stock.stock-purchase.update');
 
+//admin ->stock issue
+Route::get('/admin/stock/stock-issue', [App\Http\Controllers\StockIssueController::class, 'index'])->name('admin.stock.stock-issue');
+Route::get('/admin/stock/stock-issue/create', [App\Http\Controllers\StockIssueController::class, 'create'])->name('admin.stock.stock-issue.create');
+Route::get('/admin/stock/stock-issue/getDetail/{id}', [App\Http\Controllers\StockIssueController::class, 'getDetail']);
+Route::post('/admin/stock/stock-issue/store', [App\Http\Controllers\StockIssueController::class, 'store'])->name('admin.stock.stock-issue.store');
+Route::get('/admin/stock/stock-issue/delete/{id}', [App\Http\Controllers\StockIssueController::class, 'destroy'])->name('admin.stock.stock-issue.delete');
+Route::get('/admin/stock/stock-issue/edit/{id}', [App\Http\Controllers\StockIssueController::class, 'edit'])->name('admin.stock.stock-issue.edit');
+Route::post('/admin/stock/stock-issue/update', [App\Http\Controllers\StockIssueController::class, 'update'])->name('admin.stock.stock-issue.update');
+
+
+//admin ->stock Removals
+Route::get('/admin/stock/removals', [App\Http\Controllers\RemovalController::class, 'index'])->name('admin.stock.removals');
+Route::get('/admin/stock/removal/create', [App\Http\Controllers\RemovalController::class, 'create'])->name('admin.stock.removal.create');
+Route::post('/admin/stock/removal/store', [App\Http\Controllers\RemovalController::class, 'store'])->name('admin.stock.removal.store');
+Route::get('/admin/stock/removal/delete/{id}', [App\Http\Controllers\RemovalController::class, 'destroy'])->name('admin.stock.removal.delete');
+Route::get('/admin/stock/removal/edit/{id}', [App\Http\Controllers\RemovalController::class, 'edit'])->name('admin.stock.removal.edit');
+Route::post('/admin/stock/removal/update', [App\Http\Controllers\RemovalController::class, 'update'])->name('admin.stock.removal.update');
+
+//admin ->stock Disposals
+Route::get('/admin/stock/disposals', [App\Http\Controllers\DisposalController::class, 'index'])->name('admin.stock.disposals');
+Route::get('/admin/stock/disposal/create', [App\Http\Controllers\DisposalController::class, 'create'])->name('admin.stock.disposal.create');
+Route::post('/admin/stock/disposal/store', [App\Http\Controllers\DisposalController::class, 'store'])->name('admin.stock.disposal.store');
+Route::get('/admin/stock/disposal/delete/{id}', [App\Http\Controllers\DisposalController::class, 'destroy'])->name('admin.stock.disposal.delete');
+Route::get('/admin/stock/disposal/edit/{id}', [App\Http\Controllers\DisposalController::class, 'edit'])->name('admin.stock.disposal.edit');
+Route::post('/admin/stock/disposal/update', [App\Http\Controllers\DisposalController::class, 'update'])->name('admin.stock.disposal.update');
 
 //users
 Route::get('/user/profile', [App\Http\Controllers\HomeController::class, 'userProfile'])->name('user.profile');

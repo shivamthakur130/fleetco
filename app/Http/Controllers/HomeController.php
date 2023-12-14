@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Order;
+use App\Models\Driver;
+use App\Models\Customer;
 use App\Models\UserRole;
 use Auth;
 use Illuminate\Support\Facades\Hash;
@@ -35,9 +38,12 @@ class HomeController extends Controller
         //dd($user_type);
         $users = User::get();
         $roles = Role::get();
+        $orders = Order::get();
+        $drivers = Driver::get();
+        $customers = Customer::get();
 
         if($user_type == 'Admin'){
-            return view('dashboard',compact('users','roles'));
+            return view('dashboard',compact('users','roles','orders','drivers','customers'));
         }
         else
             return view('users.dashboard',compact('users','roles'));

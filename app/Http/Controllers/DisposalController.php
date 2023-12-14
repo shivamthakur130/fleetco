@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\StockIssue;
-use Illuminate\Support\Str;
 use App\Models\FleetType;
 use App\Models\StockCode;
+use App\Models\Disposal;
 use App\Models\Fleet;
-use App\Models\StockPurchase;
+use Illuminate\Support\Str;
 use Auth;
 
-
-class StockIssueController extends Controller
+class DisposalController extends Controller
 {
     public function __construct()
     {
@@ -23,20 +21,15 @@ class StockIssueController extends Controller
     {
         $stockCodes = StockCode::get();
         $fleetTypes = FleetType::get();
-        $stockIssues = StockIssue::get();
-        return view('admin.stock_issue.list', compact('stockCodes','fleetTypes','stockIssues'));
+        $disposals = Disposal::get();
+        return view('admin.disposals.list', compact('stockCodes','fleetTypes','disposals'));
     }
     public function create(request $request){
         $fleetTypes = FleetType::get();
         $stockCodes = StockCode::get();
         $fleet = Fleet::get();
-        return view('admin.stock_issue.add',compact('fleetTypes', 'stockCodes','fleet'));
+        return view('admin.disposals.add',compact('fleetTypes', 'stockCodes','fleet'));
     }
-    public function getDetail($fleet){
-        $data['vehicles'] = Fleet::where('fleet_type',$fleet)->select('id','plate_number')->get();
-        return response()->json($data);
-    }
-
     public function store(request $request){
         //dd($request->toArray());
         $validated = $request->validate([
@@ -44,33 +37,29 @@ class StockIssueController extends Controller
             'date' => 'required',
         ]);
         //dd($request->toARray());   
-        $st = new StockIssue;
+        $st = new Disposal;
         $st->unique_id = Str::random(40);
         $st->type = $request->type;
         $st->date = $request->date;
         $st->fleet = $request->fleet;
-        $st->vehicle = $request->vehicle;
         $st->item_code = $request->item_code;
-        $st->cost_code = $request->cost_code;
-        $st->remarks = $request->remark;
         $st->rate = $request->rate;
         $st->qty = $request->qty;
         $st->in_stock = 0;
         $st->desc = $request->desc;
         $st->supplier = $request->supplier;
         $st->brand = $request->brand;
-        $st->cost = $request->cost * $request->qty;
+        $st->value = $request->rate * $request->qty;
         $st->enterd_by = Auth::user()->name;
         $st->system_date = date('Y-m-d');
         $st->save();
 
-        return redirect()->route('admin.stock.stock-issue')->with('message', 'Saved successfully.');
+        return redirect()->route('admin.stock.disposals')->with('message', 'Saved successfully.');
     }
-
     public function destroy($id){
-        $sp = StockIssue::where('id', $id)->first();
+        $sp = Disposal::where('id', $id)->first();
         $sp->delete();
-        return redirect()->route('admin.stock.stock-issue')->with('error', 'Deleted successfully.');
+        return redirect()->route('admin.stock.disposals')->with('error', 'Deleted successfully.');
 
     }
 
@@ -78,30 +67,26 @@ class StockIssueController extends Controller
         $fleetTypes = FleetType::get();
         $stockCodes = StockCode::get();
         $fleet = Fleet::get();
-        $issue = StockIssue::where('unique_id',$id)->first();
-        return view('admin.stock_issue.edit', compact('issue','fleetTypes','stockCodes','fleet'));
+        $disposal = Disposal::where('unique_id',$id)->first();
+        return view('admin.disposals.edit', compact('fleet','fleetTypes','stockCodes','disposal'));
     }
-
     public function update(request $request){
-        $st = StockIssue::where('id', $request->id)->first();
+        $st = Disposal::where('id', $request->id)->first();
         $st->type = $request->type;
         $st->date = $request->date;
         $st->fleet = $request->fleet;
-        $st->vehicle = $request->vehicle;
         $st->item_code = $request->item_code;
-        $st->cost_code = $request->cost_code;
-        $st->remarks = $request->remark;
         $st->rate = $request->rate;
         $st->qty = $request->qty;
         $st->in_stock = 0;
         $st->desc = $request->desc;
         $st->supplier = $request->supplier;
         $st->brand = $request->brand;
-        $st->cost = $request->cost * $request->qty;
+        $st->value = $request->rate * $request->qty;
         $st->enterd_by = Auth::user()->name;
         $st->system_date = date('Y-m-d');
         $st->save();
 
-        return redirect()->route('admin.stock.stock-issue')->with('message', 'Update successfully.');
+        return redirect()->route('admin.stock.disposals')->with('message', 'Update successfully.');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fleet;
+use App\Models\FleetType;
 use App\Models\Driver;
 use Illuminate\Support\Str;
 
@@ -22,13 +23,16 @@ class FleetController extends Controller
     public function index()
     {
         $fleets = Fleet::get();
-        return view('admin.master_data.fleet_list',compact('fleets'));
+        $fleetTypes = FleetType::get();
+        return view('admin.master_data.fleet_list',compact('fleets','fleetTypes'));
     }
 
     public function create()
     {   $drivers = Driver::get();
         $fleets = Fleet::get();
-        return view('admin.master_data.fleet_create',compact('drivers','fleets'));
+        $fleetTypes = FleetType::get();
+
+        return view('admin.master_data.fleet_create',compact('drivers','fleets','fleetTypes'));
     }
 
     public function store(request $request)
@@ -48,6 +52,7 @@ class FleetController extends Controller
         $fleet->unique_id = Str::random(40);
         $fleet->internal_id = $request->internal_id;
         $fleet->plate_number = $request->plate_number;
+        $fleet->fleet_type = $request->fleet_type;
         $fleet->vin_number = $request->vin_number;
         $fleet->vehicle_make = $request->vehicle_make;
         $fleet->vehicle_model = $request->vehicle_model;
@@ -99,7 +104,9 @@ class FleetController extends Controller
         $fleet = Fleet::where('unique_id',$id)->first();
         $drivers = Driver::get();
         $fleets = Fleet::get();
-        return view('admin.master_data.edit',compact('fleet','drivers','fleets'));
+        $fleetTypes = FleetType::get();
+
+        return view('admin.master_data.edit',compact('fleet','drivers','fleets','fleetTypes'));
     }
 
     public function destroy($id){
@@ -114,6 +121,7 @@ class FleetController extends Controller
         
         $fleet->internal_id = $request->internal_id;
         $fleet->plate_number = $request->plate_number;
+        $fleet->fleet_type = $request->fleet_type;
         $fleet->vin_number = $request->vin_number;
         $fleet->vehicle_make = $request->vehicle_make;
         $fleet->vehicle_model = $request->vehicle_model;

@@ -1,9 +1,10 @@
 @extends('layouts.master')
 
-@section('title' , 'Admin|Fleet List')
+    @section('title' , 'Admin|Removals')
 
 @section('main-content')
 
+  
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
@@ -30,11 +31,11 @@
                 </div>
                 @endif
                   <div class="x_title">
-                  <a href="{{route('admin.fleet.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add Fleet</a>
+                  <a href="{{route('admin.stock.disposal.create')}}" class="btn btn-primary btn-sm ml-3 float-right" >Add New</a>
                     
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
+                    <div class="x_content">
                         <div class="row">
                           <div class="col-sm-12">
                             <div class="card-box table-responsive">
@@ -43,42 +44,63 @@
                                 <thead>
                                     <tr>
                                     <th>Sr No.</th>
-                                    <th>Image</th>
-                                    <th>Internal ID</th>
+                                    <th>Type </th>
                                     <th>Fleet</th>
-                                    <th>Plate Number</th>
-                                    <th>VIN Number</th>
-                                    <th>Model</th>
-                                    <th>Fuel</th>
+                                    <th>Date</th>
+                                    <th>Item Code</th>
+                                    <th>Brand</th>
+                                    <th>Desc</th>
+                                    <th>Supplier</th>
+                                    <th>Rate</th>
+                                    <th>Qty</th>
+                                    <th>Cost</th>
+                                    <th>Enterd By</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
                                     <tbody>
-                                    @if(count($fleets) > 0)
-                                    @foreach($fleets as $fleet)
-                                    <tr>
-                                        <td>{{ $loop->index+1}}</td>
-                                        <td><img id="original" alt="Not Uploaded" src="{{ asset('fleet/'.$fleet->vehicle_image) }}" height="30" width="30"></td>
-                                        <td>@foreach($fleetTypes as $fl)
-                                          @if($fl->id == $fleet->fleet_type)
-                                            {{$fl->fleet_type}}
-                                          @endif
+                                        @foreach($disposals as $si)
+                                            <tr>
+                                                <td>{{ $loop->index+1 }}</td>
+                                                <td>{{$si->type}}</td>
+                                                <td>
+                                                    @if(count($fleetTypes) > 0) 
+                                                        @foreach($fleetTypes as $fl) 
+                                                            @if($fl->id == $si->fleet)  
+                                                            {{ $fl->fleet_type}} 
+                                                            @endif 
+                                                        @endforeach 
+                                                    @endif  
+                                                </td>
+                                                <td>{{$si->date}}</td>
+
+                                                <td>
+                                                @if(count($stockCodes) > 0) 
+                                                        @foreach($stockCodes as $sc) 
+                                                            @if($sc->id == $si->item_code)  
+                                                            {{ $sc->item_id}} 
+                                                            @endif 
+                                                        @endforeach 
+                                                    @endif  
+                                                  </td>
+                                                <td>{{$si->brand}}</td>
+                                                <td>{{$si->desc}}</td>
+                                                <td>{{$si->supplier}}</td>
+                                                <td>{{$si->rate}}</td>
+                                                <td>{{$si->qty}}</td>
+                                                
+                                                <td>{{$si->rate * $si->qty}}</td>
+                                                <td>{{$si->enterd_by}}</td>
+                                                <td>
+                                                  <a href="{{route('admin.stock.disposal.edit', $si->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
+                                                  </a>
+                                                  <a href="{{route('admin.stock.disposal.delete', $si->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
+                                                  </a>
+                                                </td>
+
+
+                                            </tr>
                                         @endforeach
-                                        </td>
-                                        <td>{{ $fleet->internal_id}}</td>
-                                        <td>{{$fleet->plate_number}}</td>
-                                        <td>{{$fleet->vin_number}}</td>
-                                        <td>{{$fleet->vehicle_model}}</td>
-                                        <td>{{$fleet->fuel_type}}</td>
-                                        <td>
-                                        <a href="{{route('admin.fleet.edit', $fleet->unique_id)}}" class = " btn btn-primary btn-sm "><i class="fa fa-edit"></i>
-                                        </a>
-                                        <a href="{{route('admin.fleet.delete', $fleet->id)}}" class = " btn btn-danger btn-sm " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>
-                                        </a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                    @endif
                                     </tbody>
                                 </table>
                             </div>
