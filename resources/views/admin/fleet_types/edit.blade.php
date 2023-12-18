@@ -48,7 +48,7 @@
                                     <div class="ln_solid"></div>
                                     <div class="item form-group">
                                         <div class="col-md-6 col-sm-6 ">
-                                            <a class="btn btn-primary" href="{{route('admin.suppliers')}}">Back</a>
+                                            <a class="btn btn-primary" href="{{route('admin.fleet-type')}}">Back</a>
                                             <button type="submit" class="btn btn-success">Save Changes</button>
                                         </div>
                                     </div>

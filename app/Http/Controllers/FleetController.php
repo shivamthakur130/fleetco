@@ -44,8 +44,35 @@ class FleetController extends Controller
             'vehicle_model' => 'required',
             'assigned_driver' => 'required',
             'kph' => 'required',
+            'body_type' => 'required',
             'engine_bore' => 'required',
-            'fuel' => 'required'
+            'fuel' => 'required',
+            'doors' => 'required',
+            'driver_type' => 'required',
+            'vehicle_make' => 'required',
+            'vehicle_length' => 'required',
+
+            'seats' => 'required',
+            'top_speed' => 'required',
+            'transmission_type' => 'required',
+            'cc' => 'required',
+            'compression' => 'required',
+            'cylinders' => 'required',
+            'position' => 'required',
+
+            'power_ps' => 'required',
+            'power_rpm' => 'required',
+            'stroke' => 'required',
+            'torque_nm' => 'required',
+            'torque_rpm' => 'required',
+            'valves' => 'required',
+            'fuel' => 'required',
+            'fuel_cap' => 'required',
+            'liter_per_km_city' => 'required',
+            'liter_per_km_highway' => 'required',
+            'liter_per_km_mixed' => 'required',
+
+
         ]);
 
         $fleet = new Fleet;

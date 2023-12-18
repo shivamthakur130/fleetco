@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="form-group col-lg-4">
                                         <label for="project_name" >Plate Number</label>
-                                        <input type="text" class="form-control  @error('plate_number') is-invalid @enderror" id="plate_number" name="plate_number" value="" placeholder="Plate Number">
+                                        <input type="text" value="{{old('plate_number')}}" class="form-control  @error('plate_number') is-invalid @enderror" id="plate_number" name="plate_number" value="" placeholder="Plate Number">
                                             @error('plate_number')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="form-group col-lg-4">
                                         <label for="project_url" >VIN Number</label>
-                                        <input type="text" class="form-control  @error('vin_number') is-invalid @enderror" id="vin_number" name="vin_number" value="" placeholder="VIN Number">
+                                        <input type="text" value="{{old('vin_number')}}" class="form-control  @error('vin_number') is-invalid @enderror" id="vin_number" name="vin_number" value="" placeholder="VIN Number">
                                         @error('vin_number')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -56,7 +56,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-4">
                                         <label for="project_url" >Make</label>
-                                        <input type="text" class="form-control  @error('vehicle_make') is-invalid @enderror" id="vehicle_make" name="vehicle_make" value="" placeholder="Vehicle Make">
+                                        <input type="text" value="{{old('vehicle_make')}}" class="form-control  @error('vehicle_make') is-invalid @enderror" id="vehicle_make" name="vehicle_make" value="" placeholder="Vehicle Make">
                                         @error('vehicle_make')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="form-group col-lg-4">
                                         <label for="project_url" >Model</label>
-                                        <input type="text" class="form-control  @error('vehicle_model') is-invalid @enderror" id="vehicle_model" name="vehicle_model" value="" placeholder="Vehicle Model">
+                                        <input type="text" value="{{old('vehicle_model')}}" class="form-control  @error('vehicle_model') is-invalid @enderror" id="vehicle_model" name="vehicle_model" value="" placeholder="Vehicle Model">
                                         @error('vehicle_model')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -75,19 +75,23 @@
                                     <div class="form-group col-lg-4">
                                         <label for="project_url" >Year</label>
                                         <!-- <input type="text" class="form-control  @error('vehicle_year') is-invalid @enderror" id="vehicle_year" name="vehicle_year" value="" placeholder="Vehicle Year" > -->
-                                        <input id="birthday" name="vehicle_year"  require="required" class="date-picker form-control @error('vehicle_year') is-invalid @enderror" placeholder="dd-mm-yyyy" type="text"  type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
-												<script>
-													function timeFunctionLong(input) {
-														setTimeout(function() {
-															input.type = 'text';
-														}, 60000);
-													}
-												</script>
-                                        @error('vehicle_year')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <!-- <input id="birthday" name="vehicle_year"  require="required" class="date-picker form-control @error('vehicle_year') is-invalid @enderror" placeholder="dd-mm-yyyy" type="text"  type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)"> -->
+										    <select class="form-control select2" id="vehicle_year" data-placeholder="Select Driver" name ="vehicle_year" style="width: 100%;">
+                                                
+                                                <option value="2023" >2023</option>
+                                                <option value="2024" >2024</option>
+                                                <option value="2025" >2025</option>
+                                                <option value="2026" >2026</option>
+                                                <option value="2027" >2027</option>
+                                                <option value="2028" >2028</option>
+                                                <option value="2029" >2029</option>
+                                                <option value="2030" >2030</option>
+                                                <option value="2031" >2031</option>
+                                                <option value="2032" >2032</option>
+                                                <option value="2033" >2033</option>
+
+                                                
+                                            </select> 
                                     </div>
                                 </div>
                                 <div class="row">
@@ -132,7 +136,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >0 To 100 KPH</label>
-                                        <input type="text" class="form-control  @error('kph') is-invalid @enderror" id="kph" name="kph" value="" placeholder="0 To 100 KPH">
+                                        <input type="text" value="{{old('kph')}}" class="form-control  @error('kph') is-invalid @enderror" id="kph" name="kph" value="" placeholder="0 To 100 KPH">
                                         @error('kph')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -141,7 +145,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Body</label>
-                                        <input type="text" class="form-control  @error('body_type') is-invalid @enderror" id="body_type" name="body_type" value="" placeholder="Vehicle Body Type" >
+                                        <input type="text" value="{{old('body_type')}}" class="form-control  @error('body_type') is-invalid @enderror" id="body_type" name="body_type" value="" placeholder="Vehicle Body Type" >
                                         @error('body_type')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -153,7 +157,7 @@
                                 <div class="row">
                                 <div class="form-group col-lg-6">
                                         <label for="project_url" >Doors</label>
-                                        <input type="text" class="form-control  @error('doors') is-invalid @enderror" id="doors" name="doors" value="" placeholder="Number Of Doors">
+                                        <input type="text" value="{{old('doors')}}" class="form-control  @error('doors') is-invalid @enderror" id="doors" name="doors" value="" placeholder="Number Of Doors">
                                         @error('doors')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -162,7 +166,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Drive</label>
-                                        <input type="text" class="form-control  @error('driver_type') is-invalid @enderror" id="driver_type" name="driver_type" placeholder="Vehicle Driver Type">
+                                        <input type="text" value="{{old('driver_type')}}" class="form-control  @error('driver_type') is-invalid @enderror" id="driver_type" name="driver_type" placeholder="Vehicle Driver Type">
                                         @error('driver_type')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -174,7 +178,7 @@
                                 <div class="row">
                                 <div class="form-group col-lg-6">
                                         <label for="project_url" >Length (mm)</label>
-                                        <input type="text" class="form-control  @error('vehicle_length') is-invalid @enderror" id="vehicle_length" name="vehicle_length" placeholder="Vehicle Length (mm)">
+                                        <input type="text" value="{{old('vehicle_length')}}" class="form-control  @error('vehicle_length') is-invalid @enderror" id="vehicle_length" name="vehicle_length" placeholder="Vehicle Length (mm)">
                                         @error('vehicle_length')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -183,7 +187,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Seats</label>
-                                        <input type="text" class="form-control  @error('seats') is-invalid @enderror" id="seats" name="seats" placeholder="Number Of Seats">
+                                        <input type="text" value="{{old('seats')}}" class="form-control  @error('seats') is-invalid @enderror" id="seats" name="seats" placeholder="Number Of Seats">
                                         @error('seats')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -194,7 +198,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Top Speed (kph)</label>
-                                        <input type="text" class="form-control  @error('top_speed') is-invalid @enderror" id="top_speed" name="top_speed" placeholder="Vehicle Top Speed (kph)">
+                                        <input type="text" value="{{old('top_speed')}}" class="form-control  @error('top_speed') is-invalid @enderror" id="top_speed" name="top_speed" placeholder="Vehicle Top Speed (kph)">
                                         @error('top_speed')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -203,7 +207,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Transmission Type</label>
-                                        <input type="text" class="form-control  @error('transmission_type') is-invalid @enderror" id="transmission_type" name="transmission_type" value="" placeholder="Vehicle Transmission Type">
+                                        <input type="text" value="{{old('transmission_type')}}" class="form-control  @error('transmission_type') is-invalid @enderror" id="transmission_type" name="transmission_type" value="" placeholder="Vehicle Transmission Type">
                                         @error('transmission_type')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -216,7 +220,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Engine Bore (mm)</label>
-                                        <input type="text" class="form-control  @error('engine_bore') is-invalid @enderror" id="engine_bore" name="engine_bore" placeholder="Engine Bore (mm)">
+                                        <input type="text" value="{{old('engine_bore')}}" class="form-control  @error('engine_bore') is-invalid @enderror" id="engine_bore" name="engine_bore" placeholder="Engine Bore (mm)">
                                         @error('engine_bore')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -225,7 +229,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >CC</label>
-                                        <input type="text" class="form-control  @error('cc') is-invalid @enderror" id="cc" name="cc" placeholder="Engine CC">
+                                        <input type="text" value="{{old('cc')}}" class="form-control  @error('cc') is-invalid @enderror" id="cc" name="cc" placeholder="Engine CC">
                                         @error('cc')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -236,7 +240,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Compression</label>
-                                        <input type="text" class="form-control  @error('compression') is-invalid @enderror" id="compression" name="compression" placeholder="Engine Compression">
+                                        <input type="text" value="{{old('compression')}}" class="form-control  @error('compression') is-invalid @enderror" id="compression" name="compression" placeholder="Engine Compression">
                                         @error('compression')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -245,7 +249,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Cylinders</label>
-                                        <input type="text" class="form-control  @error('cylinders') is-invalid @enderror" id="cylinders" name="cylinders" value="" placeholder="Number Of Cylinders">
+                                        <input type="text" value="{{old('cylinders')}}" class="form-control  @error('cylinders') is-invalid @enderror" id="cylinders" name="cylinders" value="" placeholder="Number Of Cylinders">
                                         @error('cylinders')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -256,7 +260,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Position</label>
-                                        <input type="text" class="form-control  @error('position') is-invalid @enderror" id="position" name="position" placeholder="Engine Position">
+                                        <input type="text" value="{{old('position')}}" class="form-control  @error('position') is-invalid @enderror" id="position" name="position" placeholder="Engine Position">
                                         @error('position')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -265,7 +269,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Power (ps)</label>
-                                        <input type="text" class="form-control  @error('power_ps') is-invalid @enderror" id="power_ps" name="power_ps" placeholder="Engine Power (ps)">
+                                        <input type="text" value="{{old('power_ps')}}" class="form-control  @error('power_ps') is-invalid @enderror" id="power_ps" name="power_ps" placeholder="Engine Power (ps)">
                                         @error('power_ps')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -276,7 +280,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Power (rpm)</label>
-                                        <input type="text" class="form-control  @error('power_rpm') is-invalid @enderror" id="power_rpm" name="power_rpm" placeholder="Power rpm">
+                                        <input type="text" value="{{old('power_rpm')}}" class="form-control  @error('power_rpm') is-invalid @enderror" id="power_rpm" name="power_rpm" placeholder="Power rpm">
                                         @error('power_rpm')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -285,7 +289,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Stroke (mm)</label>
-                                        <input type="text" class="form-control  @error('stroke') is-invalid @enderror" id="stroke" name="stroke" placeholder="Stroke Length (mm)">
+                                        <input type="text" value="{{old('stroke')}}" class="form-control  @error('stroke') is-invalid @enderror" id="stroke" name="stroke" placeholder="Stroke Length (mm)">
                                         @error('stroke')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -296,7 +300,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Torque nm</label>
-                                        <input type="text" class="form-control  @error('torque_nm') is-invalid @enderror" id="torque_nm" name="torque_nm" placeholder="Engine Torque nm">
+                                        <input type="text" value="{{old('torque_nm')}}" class="form-control  @error('torque_nm') is-invalid @enderror" id="torque_nm" name="torque_nm" placeholder="Engine Torque nm">
                                         @error('torque_nm')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -305,7 +309,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Torque rpm</label>
-                                        <input type="text" class="form-control  @error('torque_rpm') is-invalid @enderror" id="torque_rpm" name="torque_rpm" placeholder="Engine Torque rpm">
+                                        <input type="text" value="{{old('torque_rpm')}}" class="form-control  @error('torque_rpm') is-invalid @enderror" id="torque_rpm" name="torque_rpm" placeholder="Engine Torque rpm">
                                         @error('torque_rpm')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -316,7 +320,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Valves per Cylinder</label>
-                                        <input type="text" class="form-control  @error('valves') is-invalid @enderror" id="valves" name="valves" placeholder="Valves per Cylinder">
+                                        <input type="text" value="{{old('valves')}}" class="form-control  @error('valves') is-invalid @enderror" id="valves" name="valves" placeholder="Valves per Cylinder">
                                         @error('valves')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -331,7 +335,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Fuel</label>
-                                        <input type="text" class="form-control  @error('fuel') is-invalid @enderror" id="fuel" name="fuel" placeholder="Fuel Type">
+                                        <input type="text" value="{{old('fuel')}}" class="form-control  @error('fuel') is-invalid @enderror" id="fuel" name="fuel" placeholder="Fuel Type">
                                         @error('fuel')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -340,7 +344,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Fuel Cap (L)</label>
-                                        <input type="text" class="form-control  @error('fuel_cap') is-invalid @enderror" id="fuel_cap" name="fuel_cap" placeholder="Fuel Cap Volume (L)">
+                                        <input type="text" value="{{old('fuel_cap')}}" class="form-control  @error('fuel_cap') is-invalid @enderror" id="fuel_cap" name="fuel_cap" placeholder="Fuel Cap Volume (L)">
                                         @error('fuel_cap')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -351,7 +355,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Liters Per km City</label>
-                                        <input type="text" class="form-control  @error('liter_per_km_city') is-invalid @enderror" id="liter_per_km_city" name="liter_per_km_city" placeholder="Liters Per km City">
+                                        <input type="text" value="{{old('liter_per_km_city')}}" class="form-control  @error('liter_per_km_city') is-invalid @enderror" id="liter_per_km_city" name="liter_per_km_city" placeholder="Liters Per km City">
                                         @error('liter_per_km_city')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -360,7 +364,7 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Liters Per km Highway</label>
-                                        <input type="text" class="form-control  @error('liter_per_km_highway') is-invalid @enderror" id="liter_per_km_highway" name="liter_per_km_highway" placeholder="Liters Per km Highway">
+                                        <input type="text" value="{{old('liter_per_km_highway')}}" class="form-control  @error('liter_per_km_highway') is-invalid @enderror" id="liter_per_km_highway" name="liter_per_km_highway" placeholder="Liters Per km Highway">
                                         @error('liter_per_km_highway')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -371,7 +375,7 @@
                                 <div class="row">
                                     <div class="form-group col-lg-6">
                                         <label for="project_url" >Liters Per km Mixed</label>
-                                        <input type="text" class="form-control  @error('liter_per_km_mixed') is-invalid @enderror" id="liter_per_km_mixed" name="liter_per_km_mixed" placeholder="Liters Per km Mixed">
+                                        <input type="text" value="{{old('liter_per_km_mixed')}}" class="form-control  @error('liter_per_km_mixed') is-invalid @enderror" id="liter_per_km_mixed" name="liter_per_km_mixed" placeholder="Liters Per km Mixed">
                                         @error('liter_per_km_mixed')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -382,7 +386,7 @@
                                     <div class="ln_solid"></div>
                                     <div class="item form-group">
                                         <div class="col-md-6 col-sm-6 ">
-                                            <a class="btn btn-primary" href="{{route('admin-area')}}">Back</a>
+                                            <a class="btn btn-primary" href="{{route('admin.fleet')}}">Back</a>
                                             <button type="submit" class="btn btn-success">Confirm & Create</button>
                                         </div>
                                     </div>
