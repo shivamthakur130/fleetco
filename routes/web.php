@@ -76,6 +76,72 @@ Route::get('/admin/stock-code/edit/{id}', [App\Http\Controllers\StockCodeControl
 Route::post('/admin/stock-code/update', [App\Http\Controllers\StockCodeController::class, 'update'])->name('admin.stock-code.update');
 Route::get('/admin/stock-code/delete/{id}', [App\Http\Controllers\StockCodeController::class, 'destroy'])->name('admin.stock-code.delete');
 
+//admin regular maintenance
+Route::get('/admin/regular-maintenance', [App\Http\Controllers\RegularMaintenanceController::class, 'index'])->name('admin.regular.maintenance');
+Route::get('/admin/regular-maintenance/create', [App\Http\Controllers\RegularMaintenanceController::class, 'create'])->name('admin.regular.maintenance.create');
+Route::post('/admin/regular-maintenance/save', [App\Http\Controllers\RegularMaintenanceController::class, 'store'])->name('admin.regular.maintenance.store');
+Route::get('/admin/regular-maintenance/edit/{id}', [App\Http\Controllers\RegularMaintenanceController::class, 'edit'])->name('admin.regular.maintenance.edit');
+Route::post('/admin/regular-maintenance/update', [App\Http\Controllers\RegularMaintenanceController::class, 'update'])->name('admin.regular.maintenance.update');
+Route::get('/admin/regular-maintenance/delete/{id}', [App\Http\Controllers\RegularMaintenanceController::class, 'destroy'])->name('admin.regular.maintenance.delete');
+
+
+//admin general repair
+Route::get('/admin/general-repair', [App\Http\Controllers\GeneralRepairController::class, 'index'])->name('admin.general.repair');
+Route::get('/admin/general-repair/create', [App\Http\Controllers\GeneralRepairController::class, 'create'])->name('admin.general.repair.create');
+Route::post('/admin/general-repair/save', [App\Http\Controllers\GeneralRepairController::class, 'store'])->name('admin.general.repair.store');
+Route::get('/admin/general-repair/edit/{id}', [App\Http\Controllers\GeneralRepairController::class, 'edit'])->name('admin.general.repair.edit');
+Route::post('/admin/general-repair/update', [App\Http\Controllers\GeneralRepairController::class, 'update'])->name('admin.general.repair.update');
+Route::get('/admin/general-repair/delete/{id}', [App\Http\Controllers\GeneralRepairController::class, 'destroy'])->name('admin.general.repair.delete');
+
+//admin accident repair
+Route::get('/admin/accident-repair', [App\Http\Controllers\AccidentRepairController::class, 'index'])->name('admin.accident.repair');
+Route::get('/admin/accident-repair/create', [App\Http\Controllers\AccidentRepairController::class, 'create'])->name('admin.accident.repair.create');
+Route::post('/admin/accident-repair/save', [App\Http\Controllers\AccidentRepairController::class, 'store'])->name('admin.accident.repair.store');
+Route::get('/admin/accident-repair/edit/{id}', [App\Http\Controllers\AccidentRepairController::class, 'edit'])->name('admin.accident.repair.edit');
+Route::post('/admin/accident-repair/update', [App\Http\Controllers\AccidentRepairController::class, 'update'])->name('admin.accident.repair.update');
+Route::get('/admin/accident-repair/delete/{id}', [App\Http\Controllers\AccidentRepairController::class, 'destroy'])->name('admin.accident.repair.delete');
+
+//admin Rebulit Types - tyre removal
+Route::get('/admin/rebuilt-type/tyre-removal/list', [App\Http\Controllers\TyreRemovalController::class, 'index'])->name('admin.rebuilt.tyre.removal');
+Route::get('/admin/rebuilt-type/tyre-removal/create', [App\Http\Controllers\TyreRemovalController::class, 'create'])->name('admin.tyre.removal.create');
+Route::post('/admin/rebuilt-type/tyre-removal/save', [App\Http\Controllers\TyreRemovalController::class, 'store'])->name('admin.tyre.removal.store');
+Route::get('/admin/rebuilt-type/tyre-removal/delete/{id}', [App\Http\Controllers\TyreRemovalController::class, 'destroy'])->name('admin.tyre.removal.delete');
+Route::get('/admin/rebuilt-type/tyre-removal/edit/{id}', [App\Http\Controllers\TyreRemovalController::class, 'edit'])->name('admin.tyre.removal.edit');
+Route::post('/admin/rebuilt-type/tyre-removal/update', [App\Http\Controllers\TyreRemovalController::class, 'update'])->name('admin.tyre.removal.update');
+
+//admin Rebulit Types - send to build
+Route::get('/admin/rebuilt-type/send-to-build/list', [App\Http\Controllers\SendToBuildController::class, 'index'])->name('admin.send.to.build');
+Route::get('/admin/rebuilt-type/send-to-build/create', [App\Http\Controllers\SendToBuildController::class, 'create'])->name('admin.send.to.build.create');
+Route::post('/admin/rebuilt-type/send-to-build/save', [App\Http\Controllers\SendToBuildController::class, 'store'])->name('admin.send.to.build.store');
+Route::get('/admin/rebuilt-type/send-to-build/delete/{id}', [App\Http\Controllers\SendToBuildController::class, 'destroy'])->name('admin.send.to.build.delete');
+Route::get('/admin/rebuilt-type/send-to-build/edit/{id}', [App\Http\Controllers\SendToBuildController::class, 'edit'])->name('admin.send.to.build.edit');
+Route::post('/admin/rebuilt-type/send-to-build/update', [App\Http\Controllers\SendToBuildController::class, 'update'])->name('admin.send.to.build.update');
+
+//admin Rebulit Types - rebuilt receipt
+Route::get('/admin/rebuilt-type/rebuilt-receipt/list', [App\Http\Controllers\RebuiltReceiptController::class, 'index'])->name('admin.rebuilt.receipt');
+Route::get('/admin/rebuilt-type/rebuilt-receipt/create', [App\Http\Controllers\RebuiltReceiptController::class, 'create'])->name('admin.rebuilt.receipt.create');
+Route::post('/admin/rebuilt-type/rebuilt-receipt/save', [App\Http\Controllers\RebuiltReceiptController::class, 'store'])->name('admin.rebuilt.receipt.store');
+Route::get('/admin/rebuilt-type/rebuilt-receipt/delete/{id}', [App\Http\Controllers\RebuiltReceiptController::class, 'destroy'])->name('admin.rebuilt.receipt.delete');
+Route::get('/admin/rebuilt-type/rebuilt-receipt/edit/{id}', [App\Http\Controllers\RebuiltReceiptController::class, 'edit'])->name('admin.rebuilt.receipt.edit');
+Route::post('/admin/rebuilt-type/rebuilt-receipt/update', [App\Http\Controllers\RebuiltReceiptController::class, 'update'])->name('admin.rebuilt.receipt.update');
+
+//admin Rebulit Types - rebuilt issue
+Route::get('/admin/rebuilt-type/rebuilt-issue/list', [App\Http\Controllers\RebuiltIssueController::class, 'index'])->name('admin.rebuilt.issue');
+Route::get('/admin/rebuilt-type/rebuilt-issue/create', [App\Http\Controllers\RebuiltIssueController::class, 'create'])->name('admin.rebuilt.issue.create');
+Route::post('/admin/rebuilt-type/rebuilt-issue/save', [App\Http\Controllers\RebuiltIssueController::class, 'store'])->name('admin.rebuilt.issue.store');
+Route::get('/admin/rebuilt-type/rebuilt-issue/delete/{id}', [App\Http\Controllers\RebuiltIssueController::class, 'destroy'])->name('admin.rebuilt.issue.delete');
+Route::get('/admin/rebuilt-type/rebuilt-issue/edit/{id}', [App\Http\Controllers\RebuiltIssueController::class, 'edit'])->name('admin.rebuilt.issue.edit');
+Route::post('/admin/rebuilt-type/rebuilt-issue/update', [App\Http\Controllers\RebuiltIssueController::class, 'update'])->name('admin.rebuilt.issue.update');
+
+//admin Rebulit Types - rebuilt tyre disposal
+Route::get('/admin/rebuilt-type/rebuilt-tyre-disposal/list', [App\Http\Controllers\RebuiltTyreDisposalController::class, 'index'])->name('admin.rebuilt.tyre.disposal');
+Route::get('/admin/rebuilt-type/rebuilt-tyre-disposal/create', [App\Http\Controllers\RebuiltTyreDisposalController::class, 'create'])->name('admin.rebuilt.tyre.disposal.create');
+Route::post('/admin/rebuilt-type/rebuilt-tyre-disposal/save', [App\Http\Controllers\RebuiltTyreDisposalController::class, 'store'])->name('admin.rebuilt.tyre.disposal.store');
+Route::get('/admin/rebuilt-type/rebuilt-tyre-disposal/delete/{id}', [App\Http\Controllers\RebuiltTyreDisposalController::class, 'destroy'])->name('admin.rebuilt.tyre.disposal.delete');
+Route::get('/admin/rebuilt-type/rebuilt-tyre-disposal/edit/{id}', [App\Http\Controllers\RebuiltTyreDisposalController::class, 'edit'])->name('admin.rebuilt.tyre.disposal.edit');
+Route::post('/admin/rebuilt-type/rebuilt-tyre-disposal/update', [App\Http\Controllers\RebuiltTyreDisposalController::class, 'update'])->name('admin.rebuilt.tyre.disposal.update');
+
+
 //admin master-data->vehicle type
 Route::get('/admin/vehicle-type', [App\Http\Controllers\VehicleTypeController::class, 'index'])->name('admin.vehicle_type');
 Route::get('/admin/vehicle-type/create', [App\Http\Controllers\VehicleTypeController::class, 'create'])->name('admin.vehicle-type.create');

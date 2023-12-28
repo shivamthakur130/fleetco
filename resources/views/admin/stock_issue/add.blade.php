@@ -22,7 +22,7 @@
                                     @csrf
                                     
                                     
-                                <h6>Stock Stock, Add New</h6>
+                                <h6>Stock Issue, Add New</h6>
                                 <hr>    
                                 
                                 <div class="row">

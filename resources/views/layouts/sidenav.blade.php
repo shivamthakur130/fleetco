@@ -58,20 +58,20 @@
                   </li>
                   <li><a><i class="fa fa-sitemap"></i> Rebuilt Types <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Tyre Removals</a></li>
-                      <li><a href="#">Send to Build</a></li>
-                      <li><a href="#">Rebuilt Receipts</a></li>
-                      <li><a href="#">Rebuilt Issues</a></li>
-                      <li><a href="#">Rebuild Tyre Dsiposals</a></li>
+                      <li><a href="{{route('admin.rebuilt.tyre.removal')}}">Tyre Removals</a></li>
+                      <li><a href="{{route('admin.send.to.build')}}">Send to Build</a></li>
+                      <li><a href="{{route('admin.rebuilt.receipt')}}">Rebuilt Receipts</a></li>
+                      <li><a href="{{route('admin.rebuilt.issue')}}">Rebuilt Issues</a></li>
+                      <li><a href="{{route('admin.rebuilt.tyre.disposal')}}">Rebuild Tyre Disposals</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-cog"></i> Repaires<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">General Repair</a></li>
-                      <li><a href="#">Accident Repair</a></li>
+                      <li><a href="{{route('admin.general.repair')}}">General Repair</a></li>
+                      <li><a href="{{route('admin.accident.repair')}}">Accident Repair</a></li>
                     </ul>
                   </li>
-                  <li class="nav"><a href="#"><i class="fa fa-windows"></i> Regular Maintenance </a>
+                  <li class="nav"><a href="{{route('admin.regular.maintenance')}}"><i class="fa fa-windows"></i> Regular Maintenance </a>
                   <li><a><i class="fa fa-laptop"></i> Renewals<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{route('admin.renewal.insurance')}}">Insurance</a></li>
